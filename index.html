@@ -11,8 +11,8 @@
             --card-bg: #f8fafc;
             --text-main: #1e293b;
             --text-muted: #64748b;
-            --accent-color: #c29b38;
-            --border-color: #e2e8f0;
+            --accent-color: #000000; /* تبدیل تمام رنگ‌های قبلی به مشکی خالص */
+            --border-color: #cbd5e1;
         }
 
         body {
@@ -25,24 +25,24 @@
             scroll-behavior: smooth;
         }
 
-        /* کاور بالا */
+        /* کاور بالا پهن‌تر و وسیع‌تر */
         .hero-cover {
-            height: 340px;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.9)), url('images/Novan_Middle_01.png') center/cover no-repeat;
-            filter: saturate(1.3) brightness(1.05);
+            height: 440px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.95)), url('images/Novan_Middle_01.png') center/cover no-repeat;
+            filter: saturate(1.2) brightness(1.05);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
-            padding: 30px 20px;
-            border-bottom: 1px solid var(--border-color);
+            padding: 35px 20px;
+            border-bottom: 2px solid var(--border-color);
             text-align: center;
         }
 
         .top-nav {
             display: flex;
             gap: 20px;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(12px);
             padding: 10px 25px;
             border-radius: 40px;
@@ -59,7 +59,7 @@
         }
 
         .top-nav a:hover {
-            color: var(--accent-color);
+            color: #000000;
             transform: translateY(-2px);
         }
 
@@ -68,15 +68,15 @@
         }
 
         .hero-content h1 {
-            font-size: 3.2rem;
+            font-size: 3.5rem;
             margin: 0 0 5px 0;
-            color: #0f172a;
+            color: #000000;
             font-weight: 700;
         }
 
         .hero-content p {
-            font-size: 1.2rem;
-            color: var(--accent-color);
+            font-size: 1.25rem;
+            color: #000000;
             margin: 0;
             font-weight: 600;
         }
@@ -87,11 +87,11 @@
             padding: 40px 20px;
         }
 
-        /* بخش درباره هنرمند (آکاردئونی / باز و بسته‌شو) */
+        /* بخش درباره هنرمند (دو زبانه) */
         .about-section {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-right: 4px solid var(--accent-color);
+            border-right: 4px solid #000000; /* تغییر نوار کناری به مشکی */
             padding: 25px 30px;
             border-radius: 12px;
             margin-bottom: 50px;
@@ -100,16 +100,20 @@
 
         .about-section h2 {
             font-size: 1.5rem;
-            color: #0f172a;
+            color: #000000;
             margin-top: 0;
             margin-bottom: 12px;
         }
 
-        .about-text-container {
-            position: relative;
+        .lang-block {
+            margin-bottom: 20px;
+        }
+        
+        .lang-block:last-child {
+            margin-bottom: 0;
         }
 
-        .about-preview {
+        .about-preview, .about-full, .about-en {
             font-size: 1.05rem;
             color: var(--text-main);
             text-align: justify;
@@ -117,20 +121,24 @@
             line-height: 2.1;
         }
 
-        /* محتوای پنهان بیانیه */
+        .about-en {
+            direction: ltr;
+            text-align: left;
+            font-family: Arial, sans-serif;
+            color: #334155;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px dashed var(--border-color);
+        }
+
         .about-full {
             display: none;
-            font-size: 1.05rem;
-            color: var(--text-main);
-            text-align: justify;
-            margin: 0;
-            line-height: 2.1;
         }
 
         .about-toggle-btn {
             background: none;
             border: none;
-            color: var(--accent-color);
+            color: #000000;
             font-family: inherit;
             font-size: 0.95rem;
             font-weight: bold;
@@ -144,19 +152,19 @@
         }
 
         .about-toggle-btn:hover {
-            opacity: 0.8;
+            opacity: 0.7;
             text-decoration: underline;
         }
 
         .section-title {
             font-size: 2rem;
             margin-bottom: 30px;
-            border-right: 4px solid var(--accent-color);
+            border-right: 4px solid #000000;
             padding-right: 15px;
-            color: #0f172a;
+            color: #000000;
         }
 
-        /* گرید نمایشگاه‌ها (عکس بزرگ در بالا، توضیحات بسیار کم در پایین) */
+        /* گرید نمایشگاه‌ها */
         .exhibitions-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -172,20 +180,19 @@
             color: inherit;
             transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             display: flex;
-            flex-direction: column; /* چیدمان عمودی: عکس بالا، متن پایین */
+            flex-direction: column;
             box-shadow: 0 4px 15px rgba(0,0,0,0.03);
         }
 
         .exhibition-card:hover {
             transform: translateY(-6px);
-            border-color: var(--accent-color);
-            box-shadow: 0 15px 30px rgba(194, 155, 56, 0.15);
+            border-color: #000000;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
 
-        /* کانتینر عکس بزرگ در بالای کارت */
         .card-img-container {
             width: 100%;
-            height: 320px; /* فضای خیلی بزرگ برای عکس */
+            height: 320px;
             overflow: hidden;
             background: #f1f5f9;
         }
@@ -201,26 +208,40 @@
             transform: scale(1.06);
         }
 
-        /* بخش توضیحات خیلی کم در پایین کارت */
         .card-content {
             padding: 15px 20px;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            flex-direction: column;
+            gap: 5px;
             background: var(--card-bg);
             border-top: 1px solid var(--border-color);
+        }
+
+        .card-title-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .card-content h3 {
             font-size: 1rem;
             margin: 0;
-            color: #0f172a;
+            color: #000000;
             font-weight: bold;
+        }
+
+        .card-content .card-title-en {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin: 0;
+            direction: ltr;
+            text-align: left;
+            font-family: Arial, sans-serif;
         }
 
         .card-content span {
             font-size: 0.85rem;
-            color: var(--accent-color);
+            color: #000000;
             font-weight: bold;
             background: #fff;
             padding: 3px 10px;
@@ -252,34 +273,42 @@
     <!-- کاور بالا -->
     <header class="hero-cover">
         <nav class="top-nav">
-            <a href="index.html">صفحه اصلی</a>
-            <a href="mailto:Saba.kafili@email.com">ارسال ایمیل</a>
-            <a href="https://instagram.com/saba_kafili_art" target="_blank">اینستاگرام</a>
+            <a href="index.html">صفحه اصلی / Home</a>
+            <a href="mailto:Saba.kafili@email.com">ارسال ایمیل / Email</a>
+            <a href="https://instagram.com/saba_kafili_art" target="_blank">اینستاگرام / Instagram</a>
         </nav>
         <div class="hero-content">
-            <h1>صبا کفیلی</h1>
-            <p>هنرهای تجسمی</p>
+            <h1>صبا کفیلی<span style="font-size: 2.2rem; display: block; font-weight: normal; color: #334155;">Saba Kafili</span></h1>
+            <p>هنرهای تجسمی | Visual Arts</p>
         </div>
         <div></div>
     </header>
 
     <div class="container">
         
-        <!-- درباره هنرمند (آکاردئونی) -->
+        <!-- درباره هنرمند (دو زبانه و آکاردئونی) -->
         <section class="about-section">
-            <h2>درباره هنرمند</h2>
+            <h2>درباره هنرمند / About the Artist</h2>
             <div class="about-text-container">
-                <p class="about-preview" id="aboutPreview">
-                    فعالیت هنری من بر تجربه‌گرایی در متریال و جست‌وجوی ظرفیت‌های بیانی مواد مختلف استوار است. در فرآیند خلق آثار، بسته به ایده و مفهوم هر پروژه، از نقاشی، کلاژ یا عناصر حجمی استفاده می‌کنم و گاهی نیز این رسانه‌ها را در کنار یکدیگر به کار می‌گیرم...
-                </p>
-                <div class="about-full" id="aboutFull">
-                    فعالیت هنری من بر تجربه‌گرایی در متریال و جست‌وجوی ظرفیت‌های بیانی مواد مختلف استوار است. در فرآیند خلق آثار، بسته به ایده و مفهوم هر پروژه، از نقاشی، کلاژ یا عناصر حجمی استفاده می‌کنم و گاهی نیز این رسانه‌ها را در کنار یکدیگر به کار می‌گیرم. برای من، انتخاب مدیوم بخشی از شکل‌گیری ایده است و هر اثر مسیر و زبان بصری خود را می‌طلبد. طبیعت یکی از مهم‌ترین سرچشمه‌های الهام در کارهایم است؛ نه صرفاً به‌عنوان موضوع، بلکه به‌عنوان بستری برای مطالعه‌ی بافت، رشد، دگرگونی، فرسایش و روابط میان عناصر. علاقه‌مندم از طریق آزمون و خطا با متریال‌های گوناگون، کیفیت‌های بصری و حسی تازه‌ای کشف کنم و امکان‌های متفاوت هر ماده را در فرآیند خلق اثر بیازمایم. برای من، فرآیند خلق اثر به اندازه‌ی نتیجه اهمیت دارد. تجربه، کشف و تعامل با مواد، هسته‌ی اصلی رویکرد هنری‌ام را شکل می‌دهد و هر پروژه فرصتی است برای شناخت عمیق‌تر رابطه‌ی میان طبیعت، ماده و بیان بصری.
+                <div class="lang-block">
+                    <p class="about-preview" id="aboutPreview">
+                        فعالیت هنری من بر تجربه‌گرایی در متریال و جست‌وجوی ظرفیت‌های بیانی مواد مختلف استوار است. در فرآیند خلق آثار، بسته به ایده و مفهوم هر پروژه، از نقاشی، کلاژ یا عناصر حجمی استفاده می‌کنم و گاهی نیز این رسانه‌ها را در کنار یکدیگر به کار می‌گیرم...
+                    </p>
+                    <div class="about-full" id="aboutFull">
+                        فعالیت هنری من بر تجربه‌گرایی در متریال و جست‌وجوی ظرفیت‌های بیانی مواد مختلف استوار است. در فرآیند خلق آثار، بسته به ایده و مفهوم هر پروژه، از نقاشی، کلاژ یا عناصر حجمی استفاده می‌کنم و گاهی نیز این رسانه‌ها را در کنار یکدیگر به کار می‌گیرم. برای من، انتخاب مدیوم بخشی از شکل‌گیری ایده است و هر اثر مسیر و زبان بصری خود را می‌طلبد. طبیعت یکی از مهم‌ترین سرچشمه‌های الهام در کارهایم است؛ نه صرفاً به‌عنوان موضوع، بلکه به‌عنوان بستری برای مطالعه‌ی بافت، رشد، دگرگونی، فرسایش و روابط میان عناصر. علاقه‌مندم از طریق آزمون و خطا با متریال‌های گوناگون، کیفیت‌های بصری و حسی تازه‌ای کشف کنم و امکان‌های متفاوت هر ماده را در فرآیند خلق اثر بیازمایم. برای من، فرآیند خلق اثر به اندازه‌ی نتیجه اهمیت دارد. تجربه، کشف و تعامل با مواد، هسته‌ی اصلی رویکرد هنری‌ام را شکل می‌دهد و هر پروژه فرصتی است برای شناخت عمیق‌تر رابطه‌ی میان طبیعت، ماده و بیان بصری.
+                    </div>
                 </div>
-                <button class="about-toggle-btn" id="toggleBtn" onclick="toggleAbout()">ادامه مطلب ↓</button>
+
+                <!-- ترجمه انگلیسی متن بیانیه -->
+                <div class="about-en">
+                    My artistic practice is grounded in material experimentation and the exploration of the expressive potentials of various mediums. Depending on the concept of each project, I work with painting, collage, or volumetric elements, often combining these mediums. For me, choosing the medium is part of idea formation, and every artwork demands its own visual language. Nature serves as a primary source of inspiration—not merely as a subject, but as a framework to study texture, growth, transformation, erosion, and relational dynamics. Through trial and error with diverse materials, I seek to discover novel sensory and visual qualities. The process of creation is as vital to me as the final outcome; material engagement is at the core of my artistic approach.
+                </div>
+
+                <button class="about-toggle-btn" id="toggleBtn" onclick="toggleAbout()">ادامه مطلب (فارسی) ↓ / Read More</button>
             </div>
         </section>
 
-        <h2 class="section-title">فهرست نمایشگاه‌ها و آثار</h2>
+        <h2 class="section-title">فهرست نمایشگاه‌ها و آثار / Exhibitions & Works</h2>
         
         <div class="exhibitions-grid">
             <!-- گالری ایوان ۱۴۰۲ -->
@@ -288,8 +317,11 @@
                     <img src="images/Evan_Wave_01.png" alt="گالری ایوان">
                 </div>
                 <div class="card-content">
-                    <h3>نمایشگاه گروهی، گالری ایوان</h3>
-                    <span>۱۴۰۲</span>
+                    <div class="card-title-row">
+                        <h3>نمایشگاه گروهی، گالری ایوان</h3>
+                        <span>۱۴۰۲</span>
+                    </div>
+                    <p class="card-title-en">Group Exhibition, Evan Gallery</p>
                 </div>
             </a>
 
@@ -299,8 +331,11 @@
                     <img src="images/Novan_Farag_03.png" alt="گالری نووان">
                 </div>
                 <div class="card-content">
-                    <h3>نمایشگاه گروهی، گالری نووان</h3>
-                    <span>۱۴۰۰</span>
+                    <div class="card-title-row">
+                        <h3>نمایشگاه گروهی، گالری نووان</h3>
+                        <span>۱۴۰۰</span>
+                    </div>
+                    <p class="card-title-en">Group Exhibition, Novan Gallery</p>
                 </div>
             </a>
 
@@ -310,8 +345,11 @@
                     <img src="images/Vali_01.png" alt="گالری والی">
                 </div>
                 <div class="card-content">
-                    <h3>نمایشگاه گروهی، گالری والی</h3>
-                    <span>۱۳۹۸</span>
+                    <div class="card-title-row">
+                        <h3>نمایشگاه گروهی، گالری والی</h3>
+                        <span>۱۳۹۸</span>
+                    </div>
+                    <p class="card-title-en">Group Exhibition, Vali Gallery</p>
                 </div>
             </a>
 
@@ -321,8 +359,11 @@
                     <img src="images/Sobhan_Gallery_01.png" alt="گالری سبحان ۱۳۹۲">
                 </div>
                 <div class="card-content">
-                    <h3>نمایشگاه گروهی، گالری سبحان</h3>
-                    <span>۱۳۹۲</span>
+                    <div class="card-title-row">
+                        <h3>نمایشگاه گروهی، گالری سبحان</h3>
+                        <span>۱۳۹۲</span>
+                    </div>
+                    <p class="card-title-en">Group Exhibition, Sobhan Gallery</p>
                 </div>
             </a>
 
@@ -332,29 +373,35 @@
                     <img src="images/Sobhan_Gender_01.png" alt="گالری سبحان ۱۳۹۰">
                 </div>
                 <div class="card-content">
-                    <h3>نمایشگاه گروهی، گالری سبحان</h3>
-                    <span>۱۳۹۰</span>
+                    <div class="card-title-row">
+                        <h3>نمایشگاه گروهی، گالری سبحان</h3>
+                        <span>۱۳۹۰</span>
+                    </div>
+                    <p class="card-title-en">Group Exhibition, Sobhan Gallery</p>
                 </div>
             </a>
 
             <!-- کارهای آزاد 0000 -->
-            <a href="gallery-0000-free-works.html" class="exhibition-card" style="border-color: var(--accent-color);">
+            <a href="gallery-0000-free-works.html" class="exhibition-card">
                 <div class="card-img-container">
                     <img src="images/photo_2024-05-10_15-37-22.png" alt="کارهای آزاد">
                 </div>
                 <div class="card-content">
-                    <h3>کارهای آزاد</h3>
-                    <span>آثار استودیو</span>
+                    <div class="card-title-row">
+                        <h3>کارهای آزاد</h3>
+                        <span>استودیو</span>
+                    </div>
+                    <p class="card-title-en">Free Works / Studio</p>
                 </div>
             </a>
         </div>
     </div>
 
     <footer>
-        <p>تمامی حقوق محفوظ است © ۲۰۲۶ | صبا کفیلی</p>
+        <p>تمامی حقوق محفوظ است © ۲۰۲۶ صبا کفیلی | All Rights Reserved © 2026 Saba Kafili</p>
     </footer>
 
-    <!-- اسکریپت ساده برای دکمه باز و بسته کردن بیانیه هنرمند -->
+    <!-- اسکریپت باز و بسته کردن بخش فارسی بیانیه -->
     <script>
         function toggleAbout() {
             const fullText = document.getElementById('aboutFull');
@@ -364,11 +411,11 @@
             if (fullText.style.display === 'block') {
                 fullText.style.display = 'none';
                 previewText.style.display = 'block';
-                btn.innerHTML = 'ادامه مطلب ↓';
+                btn.innerHTML = 'ادامه مطلب (فارسی) ↓ / Read More';
             } else {
                 fullText.style.display = 'block';
                 previewText.style.display = 'none';
-                btn.innerHTML = 'بستن متن ↑';
+                btn.innerHTML = 'بستن متن ↑ / Close';
             }
         }
     </script>
