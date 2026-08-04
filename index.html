@@ -10,17 +10,17 @@
 
     <style>
         :root {
-            --bg-color: #0d1322; /* سرمه‌ای تیره و لوکس */
+            --bg-color: #0d1322;
             --card-bg: #131b2e;
             --text-main: #f0f6fc;
             --text-muted: #9fb0c7;
-            --accent-color: #e5b53b; /* طلایی ملایم گالری */
+            --accent-color: #e5b53b;
             --border-color: #21304d;
         }
 
         body {
             font-family: 'Tahoma', 'B Nazanin', Arial, sans-serif;
-            background-color: var(--bg-color);
+            background-color: var--bg-color);
             color: var(--text-main);
             margin: 0;
             padding: 0;
@@ -28,10 +28,11 @@
             scroll-behavior: smooth;
         }
 
-        /* کاور رنگ‌دار و شفاف با تم سرمه‌ای و عکس پس‌زمینه */
+        /* کاور بزرگ بالا با عکس Novan_Middle_01 رنگی‌شده، شفاف و جذاب */
         .hero-cover {
-            height: 500px;
-            background: linear-gradient(135deg, rgba(13, 19, 34, 0.82), rgba(13, 19, 34, 0.92)), url('Evan_Wave_06.png') center/cover no-repeat;
+            height: 480px;
+            background: linear-gradient(135deg, rgba(13, 19, 34, 0.65), rgba(13, 19, 34, 0.85)), url('Novan_Middle_01.png') center/cover no-repeat;
+            filter: saturate(1.4) brightness(1.1);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -41,7 +42,6 @@
             text-align: center;
         }
 
-        /* منوی راه‌های ارتباطی در بالا */
         .top-nav {
             display: flex;
             gap: 20px;
@@ -87,7 +87,6 @@
             padding: 60px 20px;
         }
 
-        /* بخش فهرست نمایشگاه‌ها */
         .section-title {
             font-size: 2.2rem;
             margin-bottom: 35px;
@@ -96,14 +95,13 @@
             color: #ffffff;
         }
 
+        /* فقط همین یک لیست نمایشگاه‌ها در صفحه قرار دارد */
         .exhibitions-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
-            margin-bottom: 80px;
         }
 
-        /* کارت‌های نمایشگاه با انیمیشن */
         .exhibition-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -161,68 +159,6 @@
             font-weight: bold;
         }
 
-        /* بخش جزئیات گالری‌ها */
-        .gallery-section {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            padding: 45px;
-            border-radius: 14px;
-            margin-bottom: 60px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-
-        .gallery-desc {
-            color: var(--text-muted);
-            font-size: 1.05rem;
-            margin-bottom: 25px;
-            line-height: 2;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 25px;
-        }
-
-        .gallery-item {
-            background: #000;
-            border-radius: 8px;
-            overflow: hidden;
-            aspect-ratio: 4/3;
-            border: 1px solid var(--border-color);
-            transition: transform 0.3s ease;
-        }
-
-        .gallery-item:hover {
-            transform: scale(1.02);
-            border-color: var(--accent-color);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* استایل مدل سه‌بعدی */
-        .model-container {
-            margin-top: 35px;
-            background: #0b101c;
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            padding: 20px;
-            text-align: center;
-        }
-
-        model-viewer {
-            width: 100%;
-            height: 420px;
-            background-color: #0d1322;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-        }
-
         /* فوتر */
         footer {
             text-align: center;
@@ -231,6 +167,7 @@
             color: var(--text-muted);
             font-size: 0.9rem;
             background: rgba(13, 19, 34, 0.5);
+            margin-top: 80px;
         }
 
         @media (max-width: 768px) {
@@ -241,11 +178,10 @@
 </head>
 <body>
 
-    <!-- کاور با عکس پس‌زمینه دلخواه و لایه سرمه‌ای شفاف -->
+    <!-- کاور بالا با عکس جذاب‌تر، رنگی‌شده و شفاف Novan_Middle_01 -->
     <header class="hero-cover">
         <nav class="top-nav">
-            <a href="#exhibitions">نمایشگاه‌ها</a>
-            <a href="#free-works">کارهای آزاد</a>
+            <a href="index.html">صفحه اصلی</a>
             <a href="mailto:Saba.kafili@email.com">ارسال ایمیل</a>
             <a href="https://instagram.com/saba_kafili_art" target="_blank">اینستاگرام</a>
         </nav>
@@ -256,14 +192,13 @@
         <div></div>
     </header>
 
-    <div class="container" id="exhibitions">
-
-        <!-- فهرست نمایشگاه‌ها -->
+    <div class="container">
         <h2 class="section-title">فهرست نمایشگاه‌ها و آثار</h2>
         
+        <!-- تنها لیست تمیز و اصلی بدون تکرار -->
         <div class="exhibitions-grid">
-            <!-- نمایشگاه ۱: گالری ایوان -->
-            <a href="#evan-gallery" class="exhibition-card">
+            <!-- گالری ایوان (با عکس درست و مرتبط) -->
+            <a href="evan-gallery.html" class="exhibition-card">
                 <div class="card-img-container">
                     <img src="Evan_Wave_06.png" alt="گالری ایوان">
                 </div>
@@ -273,7 +208,7 @@
                 </div>
             </a>
 
-            <!-- نمایشگاه ۲ -->
+            <!-- گالری نووان -->
             <a href="#novan-gallery" class="exhibition-card">
                 <div class="card-img-container">
                     <img src="Novan_Middle_01.png" alt="گالری نووان">
@@ -284,7 +219,7 @@
                 </div>
             </a>
 
-            <!-- نمایشگاه ۳ -->
+            <!-- گالری سبحان ۱۳۹۲ -->
             <a href="#sobhan-92" class="exhibition-card">
                 <div class="card-img-container">
                     <img src="Sobhan_Gallery_01.png" alt="گالری سبحان ۱۳۹۲">
@@ -295,7 +230,7 @@
                 </div>
             </a>
 
-            <!-- نمایشگاه ۴ -->
+            <!-- گالری سبحان ۱۳۹۰ -->
             <a href="#sobhan-90" class="exhibition-card">
                 <div class="card-img-container">
                     <img src="Sobhan_Gender_01.png" alt="گالری سبحان ۱۳۹۰">
@@ -317,78 +252,6 @@
                 </div>
             </a>
         </div>
-
-
-        <!-- بخش جزئیات گالری‌ها -->
-
-        <!-- ۱. گالری ایوان (شامل متن، عکس‌های متعدد و مدل سه‌بعدی تعاملی) -->
-        <section id="evan-gallery" class="gallery-section">
-            <h2 style="color: #fff; margin-top:0;">نمایشگاه گروهی، گالری ایوان</h2>
-            <p style="color: var(--accent-color); font-weight: bold;">سال ۱۴۰۲</p>
-            <p class="gallery-desc">
-                مجموعه‌ای از آثار حجم معلق و ترکیب متریال که به بررسی مفاهیم سیالیت، فرم‌های استوانه‌ای رنگی و بازتعریف فضا در گالری ایوان می‌پردازد.
-            </p>
-            
-            <!-- عکس‌های گالری ایوان -->
-            <div class="gallery-grid">
-                <div class="gallery-item"><img src="Evan_Wave_06.png" alt="نمایشگاه ایوان"></div>
-                <div class="gallery-item"><img src="Evan_Wave_07.png" alt="نمای دیگر از اثر ایوان"></div>
-            </div>
-
-            <!-- بخش مدل سه‌بعدی تعاملی -->
-            <div class="model-container">
-                <h3 style="color: #fff; margin-bottom: 5px; font-size: 1.1rem;">مدل سه‌بعدی تعاملی اثر</h3>
-                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">برای چرخاندن اثر، با موس یا انگشت آن را بکشید.</p>
-                
-                <!-- تگ نمایش مدل سه‌بعدی (فایل خروجی glb با نام Evan_Wave_3D_01) -->
-                <model-viewer 
-                    src="Evan_Wave_3D_01.glb" 
-                    alt="Evan_Wave 3D 01" 
-                    auto-rotate 
-                    camera-controls 
-                    shadow-intensity="1">
-                </model-viewer>
-            </div>
-        </section>
-
-        <!-- ۲. گالری نووان -->
-        <section id="novan-gallery" class="gallery-section">
-            <h2 style="color: #fff; margin-top:0;">نمایشگاه گروهی، گالری نووان</h2>
-            <p style="color: var(--accent-color); font-weight: bold;">سال ۱۴۰۰</p>
-            <div class="gallery-grid">
-                <div class="gallery-item"><img src="Novan_Middle_01.png" alt="اثری از گالری نووان"></div>
-            </div>
-        </section>
-
-        <!-- ۳. گالری سبحان ۱۳۹۲ -->
-        <section id="sobhan-92" class="gallery-section">
-            <h2 style="color: #fff; margin-top:0;">نمایشگاه گروهی، گالری سبحان</h2>
-            <p style="color: var(--accent-color); font-weight: bold;">سال ۱۳۹۲</p>
-            <div class="gallery-grid">
-                <div class="gallery-item"><img src="Sobhan_Gallery_01.png" alt="اثری از گالری سبحان"></div>
-            </div>
-        </section>
-
-        <!-- ۴. گالری سبحان ۱۳۹۰ -->
-        <section id="sobhan-90" class="gallery-section">
-            <h2 style="color: #fff; margin-top:0;">نمایشگاه گروهی، گالری سبحان</h2>
-            <p style="color: var(--accent-color); font-weight: bold;">سال ۱۳۹۰</p>
-            <div class="gallery-grid">
-                <div class="gallery-item"><img src="Sobhan_Gender_01.png" alt="اثری از گالری سبحان"></div>
-            </div>
-        </section>
-
-        <!-- ۵. کارهای آزاد -->
-        <section id="free-works" class="gallery-section" style="border-color: var(--accent-color);">
-            <h2 style="color: #fff; margin-top:0;">کارهای آزاد</h2>
-            <p style="color: var(--accent-color); font-weight: bold;">آثار استودیویی و تجربی</p>
-            <div class="gallery-grid">
-                <div class="gallery-item"><img src="photo_2024-05-10_15-37-22.png" alt="کار آزاد"></div>
-                <div class="gallery-item"><img src="photo_2024-05-10_15-37-09.png" alt="کار آزاد"></div>
-                <div class="gallery-item"><img src="photo_2024-05-10_15-37-19.png" alt="کار آزاد"></div>
-            </div>
-        </section>
-
     </div>
 
     <footer>
