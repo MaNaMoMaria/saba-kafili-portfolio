@@ -3,228 +3,334 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>پورتفولیو صبا کفیلی | Saba Kafili</title>
+    <title>پورتفولیو صبا کفیلی | Saba Kafili Portfolio</title>
     <style>
         :root {
-            --bg-color: #fafafa;
-            --text-color: #222222;
-            --accent-color: #666666;
-            --card-bg: #ffffff;
-            --border-color: #e5e5e5;
+            --bg-color: #0f1115;
+            --card-bg: #161b22;
+            --text-main: #f0f6fc;
+            --text-muted: #8b949e;
+            --accent-color: #d29922;
+            --border-color: #30363d;
         }
 
         body {
             font-family: 'Tahoma', 'B Nazanin', Arial, sans-serif;
             background-color: var(--bg-color);
-            color: var(--text-color);
+            color: var(--text-main);
             margin: 0;
             padding: 0;
-            line-height: 1.8;
+            line-height: 1.9;
+            scroll-behavior: smooth;
         }
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        /* هدر و بیوگرافی */
-        header {
-            text-align: center;
-            padding: 60px 0 40px 0;
+        /* کاور زیبا و هدر در بالای صفحه */
+        .hero-cover {
+            height: 450px;
+            background: linear-gradient(rgba(15, 17, 21, 0.6), rgba(15, 17, 21, 0.9)), url('photo_2026-08-04_09-05-57.jpg') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 20px;
             border-bottom: 1px solid var(--border-color);
-            margin-bottom: 50px;
+            text-align: center;
         }
 
-        header h1 {
-            font-size: 2.5rem;
-            margin: 15px 0 5px 0;
+        /* منوی راه‌های ارتباطی در بالای صفحه */
+        .top-nav {
+            display: flex;
+            gap: 15px;
+            background: rgba(22, 27, 34, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 10px 25px;
+            border-radius: 30px;
+            border: 1px solid var(--border-color);
+        }
+
+        .top-nav a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .top-nav a:hover {
+            color: var(--accent-color);
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin: 0 0 10px 0;
+            color: #ffffff;
+            font-weight: 700;
             letter-spacing: -1px;
         }
 
-        header p.subtitle {
-            font-size: 1.1rem;
+        .hero-content p {
+            font-size: 1.2rem;
             color: var(--accent-color);
-            margin-bottom: 20px;
+            margin: 0;
         }
 
-        header p.bio {
-            max-width: 600px;
+        .container {
+            max-width: 1100px;
             margin: 0 auto;
-            font-size: 1rem;
-            color: #444;
+            padding: 60px 20px;
         }
 
-        /* بخش نمایشگاه‌ها */
-        .exhibition-section {
+        /* بخش لیست نمایشگاه‌ها (صفحه اول) */
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            border-right: 4px solid var(--accent-color);
+            padding-right: 15px;
+            color: #ffffff;
+        }
+
+        .exhibitions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
             margin-bottom: 80px;
+        }
+
+        .exhibition-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.02);
+            border-radius: 10px;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
 
-        .exhibition-title {
-            font-size: 1.8rem;
-            margin-bottom: 5px;
-            color: var(--text-color);
+        .exhibition-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-color);
+            box-shadow: 0 10px 25px rgba(210, 153, 34, 0.15);
         }
 
-        .exhibition-meta {
-            font-size: 0.95rem;
+        .card-img-container {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .card-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .exhibition-card:hover .card-img-container img {
+            transform: scale(1.08);
+        }
+
+        .card-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+
+        .card-content h3 {
+            font-size: 1.1rem;
+            margin: 0 0 10px 0;
+            color: #ffffff;
+        }
+
+        .card-content span {
+            font-size: 0.85rem;
             color: var(--accent-color);
-            margin-bottom: 20px;
             font-weight: bold;
         }
 
-        .exhibition-desc {
-            margin-bottom: 30px;
-            color: #555;
-            font-size: 1rem;
+        /* بخش جزئیات گالری‌ها در ادامه صفحه */
+        .gallery-section {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 50px;
         }
 
-        /* گالری تصاویر داخل هر نمایشگاه */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 20px;
+            margin-top: 25px;
         }
 
         .gallery-item {
-            background: #f0f0f0;
-            border-radius: 4px;
+            background: #000;
+            border-radius: 6px;
             overflow: hidden;
             aspect-ratio: 4/3;
+            border: 1px solid var(--border-color);
         }
 
         .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.3s ease;
         }
 
-        .gallery-item img:hover {
-            transform: scale(1.03);
-        }
-
-        /* فوتر و راه‌های ارتباطی */
+        /* فوتر */
         footer {
             text-align: center;
             padding: 40px 0;
             border-top: 1px solid var(--border-color);
-            margin-top: 60px;
-            color: var(--accent-color);
-        }
-
-        .contact-links {
-            margin-bottom: 15px;
-        }
-
-        .contact-links a {
-            color: var(--text-color);
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-
-        .contact-links a:hover {
-            color: #000;
-            text-decoration: underline;
+            color: var(--text-muted);
+            font-size: 0.9rem;
         }
 
         @media (max-width: 768px) {
-            .exhibition-section {
-                padding: 20px;
-            }
-            header h1 {
-                font-size: 2rem;
-            }
+            .hero-content h1 { font-size: 2.5rem; }
+            .top-nav { flex-wrap: wrap; justify-content: center; }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-
-    <!-- بخش معرفی هنرمند -->
-    <header>
-        <h1>صبا کفیلی</h1>
-        <p class="subtitle">هنرمند معاصر | مجسمه‌سازی و چیدمان</p>
-        <p class="bio">
-            مجموعه آثار ارائه شده حاصل کاوش در فرم‌های ارگانیک، مواد صنعتی و دگرگونی ساختارها در فضایی مینیمال است.
-        </p>
-    </header>
-
-    <!-- نمایشگاه اول -->
-    <!-- مجموعه داینامیک -->
-    <section class="exhibition-section">
-        <h2 class="exhibition-title">مجموعهٔ «داینامیک»</h2>
-        <div class="exhibition-meta">نمایشگاه انفرادی / گروهی ، ۱۴۰۰</div>
-        <p class="exhibition-desc">مجموعه‌ای از آثار حجم و ترکیب متریال که به بررسی فرم‌های دگرگون‌شده و سیالیت در فضا می‌پردازد.</p>
-        
-        <!-- اثر اول: موج (۱۰۰ × ۱۵۰) -->
-        <div style="margin-bottom: 40px; border-bottom: 1px solid #eee; padding-bottom: 30px;">
-            <h3 style="font-size: 1.3rem; margin-bottom: 5px;">اثری از مجموعه موج</h3>
-            <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">ابعاد: ۱۰۰ × ۱۵۰ سانتی‌متر | ترکیب متریال روی بوم | ۱۴۰۰</p>
-            <div class="gallery-grid">
-                <div class="gallery-item"><img src="photo_2024-05-10_15-37-22.jpg" alt="موج - ترکیب متریال روی بوم"></div>
-            </div>
-        </div>
-
-        <!-- اثر دوم: موج (۱۲۰۰ سانتی‌متر) -->
-        <div style="margin-bottom: 40px; border-bottom: 1px solid #eee; padding-bottom: 30px;">
-            <h3 style="font-size: 1.3rem; margin-bottom: 5px;">اثری از مجموعه موج</h3>
-            <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">ابعاد: ۱۲۰ سانتی‌متر | ترکیب متریال | ۱۴۰۰</p>
-            <div class="gallery-grid">
-                <div class="gallery-item"><img src="photo_2024-05-10_15-37-09.jpg" alt="موج - ترکیب متریال"></div>
-                <div class="gallery-item"><img src="photo_2024-05-10_15-37-09_2.jpg" alt="نمای دیگر اثر"></div>
-            </div>
-        </div>
-
-        <!-- اثر سوم: موج (۱۲۵ × ۱۱۵ سانتی‌متر) با عکس‌های کامل گالری -->
-        <div>
-            <h3 style="font-size: 1.3rem; margin-bottom: 5px;">اثری از مجموعه موج (چیدمان در فضای گالری)</h3>
-            <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">ابعاد: ۱۲۵ × ۱۱۵ سانتی‌متر | ترکیب متریال | ۱۴۰۰</p>
-            <div class="gallery-grid">
-                <div class="gallery-item"><img src="photo_2026-08-04_09-05-56.jpg" alt="موج - نمای نزدیک اثر"></div>
-                <div class="gallery-item"><img src="photo_2026-08-04_09-05-56_2.jpg" alt="موج - زاویه دیگر"></div>
-                <div class="gallery-item"><img src="photo_2026-08-04_09-05-57.jpg" alt="چیدمان اثر در گالری"></div>
-                <div class="gallery-item"><img src="photo_2026-08-04_09-05-57_2.jpg" alt="نمای محیطی گالری"></div>
-                <div class="gallery-item"><img src="photo_2026-08-04_09-05-58.jpg" alt="اثر در فضای نمایشگاه"></div>
-                <div class="gallery-item"><img src="photo_2026-08-04_09-05-58 (2).jpg" alt="مخاطب در کنار اثر"></div>
-                <div class="gallery-item"><img src="photo_2024-05-10_15-37-02.jpg" alt="جزییات اثر"></div>
-                <div class="gallery-item"><img src="photo_2024-05-10_15-37-02_2.jpg" alt="نمای استودیویی اثر"></div>
-                <div class="gallery-item"><img src="photo_2024-05-10_15-37-19.jpg" alt="بررسی بافت اثر"></div>
-            </div>
-        </div>
-    </section>
-    <!-- نمایشگاه دوم -->
-    <section class="exhibition-section">
-        <h2 class="exhibition-title">مجموعه مجسمه‌های دیواری</h2>
-        <div class="exhibition-meta">نمایشگاه انفرادی ، گالری آریا ، ۱۳۹۹</div>
-        <p class="exhibition-desc">این مجموعه با الهام از فرم‌های ارگانیک و بازی با بافت و رنگ، تلاشی است برای ثبت لحظه‌ای از دگرگونی و سیالیت در قالب ماده‌ای سخت.</p>
-        
-        <div class="gallery-grid">
-            <div class="gallery-item"><img src="لینک_عکس_اول_آریا.jpg" alt="اثری از صبا کفیلی"></div>
-            <div class="gallery-item"><img src="لینک_عکس_دوم_آریا.jpg" alt="اثری از صبا کفیلی"></div>
-        </div>
-    </section>
-
-    <!-- (شما همین ساختار <section> را برای نمایشگاه‌های ۳ تا ۶ هم کپی و تکرار می‌کنید) -->
-
-    <!-- فوتر و راه‌های ارتباطی -->
-    <footer>
-        <div class="contact-links">
-            <a href="mailto:Saba.kafili@email.com">ایمیل</a>
+    <!-- کاور زیبا و راه‌های ارتباطی در بالای صفحه -->
+    <header class="hero-cover">
+        <div class="top-nav">
+            <a href="#exhibitions">نمایشگاه‌ها</a>
+            <a href="#free-works">کارهای آزاد</a>
+            <a href="mailto:Saba.kafili@email.com">ارسال ایمیل</a>
             <a href="https://instagram.com/saba_kafili_art" target="_blank">اینستاگرام</a>
         </div>
-        <p><small>تمامی حقوق محفوظ است © ۲۰۲۶</small></p>
-    </footer>
+        <div class="hero-content">
+            <h1>صبا کفیلی</h1>
+            <p>هنرمند معاصر | مجسمه‌سازی و چیدمان</p>
+        </div>
+        <div></div> <!-- برای توازن در Flexbox -->
+    </header>
 
-</div>
+    <div class="container" id="exhibitions">
+
+        <!-- لیست و منوی گرافیکی نمایشگاه‌ها (صفحه اول سایت) -->
+        <h2 class="section-title">فهرست نمایشگاه‌ها و آثار</h2>
+        
+        <div class="exhibitions-grid">
+            <!-- نمایشگاه ۱ -->
+            <a href="#evan-gallery" class="exhibition-card">
+                <div class="card-img-container">
+                    <img src="Evan_Wave_01.jpg" alt="گالری ایوان">
+                </div>
+                <div class="card-content">
+                    <h3>نمایشگاه گروهی، گالری ایوان</h3>
+                    <span>۱۴۰۲</span>
+                </div>
+            </a>
+
+            <!-- نمایشگاه ۲ -->
+            <a href="#novan-gallery" class="exhibition-card">
+                <div class="card-img-container">
+                    <img src="Novan_Middle_01.jpg" alt="گالری نووان">
+                </div>
+                <div class="card-content">
+                    <h3>نمایشگاه گروهی، گالری نووان</h3>
+                    <span>۱۴۰۰</span>
+                </div>
+            </a>
+
+            <!-- نمایشگاه ۳ -->
+            <a href="#sobhan-92" class="exhibition-card">
+                <div class="card-img-container">
+                    <img src="Sobhan_Gallery_01.jpg" alt="گالری سبحان ۱۳۹۲">
+                </div>
+                <div class="card-content">
+                    <h3>نمایشگاه گروهی، گالری سبحان</h3>
+                    <span>۱۳۹۲</span>
+                </div>
+            </a>
+
+            <!-- نمایشگاه ۴ -->
+            <a href="#sobhan-90" class="exhibition-card">
+                <div class="card-img-container">
+                    <img src="Sobhan_Gender_01.jpg" alt="گالری سبحان ۱۳۹۰">
+                </div>
+                <div class="card-content">
+                    <h3>نمایشگاه گروهی، گالری سبحان</h3>
+                    <span>۱۳۹۰</span>
+                </div>
+            </a>
+
+            <!-- کارهای آزاد (بخش ویژه که درخواست دادید) -->
+            <a href="#free-works" class="exhibition-card" style="border-color: var(--accent-color);">
+                <div class="card-img-container">
+                    <img src="photo_2024-05-10_15-37-22.jpg" alt="کارهای آزاد">
+                </div>
+                <div class="card-content">
+                    <h3>کارهای آزاد</h3>
+                    <span>آثار بدون نمایشگاه / استودیو</span>
+                </div>
+            </a>
+        </div>
+
+
+        <!-- گالری کامل نمایشگاه‌ها (با کلیک روی کارت‌ها به اینجا هدایت می‌شود) -->
+
+        <!-- ۱. گالری ایوان -->
+        <section id="evan-gallery" class="gallery-section">
+            <h2 style="color: #fff; margin-top:0;">نمایشگاه گروهی، گالری ایوان</h2>
+            <p style="color: var(--accent-color); font-weight: bold;">سال ۱۴۰۲</p>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="Evan_Wave_01.jpg" alt="اثری از گالری ایوان"></div>
+            </div>
+        </section>
+
+        <!-- ۲. گالری نووان -->
+        <section id="novan-gallery" class="gallery-section">
+            <h2 style="color: #fff; margin-top:0;">نمایشگاه گروهی، گالری نووان</h2>
+            <p style="color: var(--accent-color); font-weight: bold;">سال ۱۴۰۰</p>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="Novan_Middle_01.jpg" alt="اثری از گالری نووان"></div>
+            </div>
+        </section>
+
+        <!-- ۳. گالری سبحان ۱۳۹۲ -->
+        <section id="sobhan-92" class="gallery-section">
+            <h2 style="color: #fff; margin-top:0;">نمایشگاه گروهی، گالری سبحان</h2>
+            <p style="color: var(--accent-color); font-weight: bold;">سال ۱۳۹۲</p>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="Sobhan_Gallery_01.jpg" alt="اثری از گالری سبحان"></div>
+            </div>
+        </section>
+
+        <!-- ۴. گالری سبحان ۱۳۹۰ -->
+        <section id="sobhan-90" class="gallery-section">
+            <h2 style="color: #fff; margin-top:0;">نمایشگاه گروهی، گالری سبحان</h2>
+            <p style="color: var(--accent-color); font-weight: bold;">سال ۱۳۹۰</p>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="Sobhan_Gender_01.jpg" alt="اثری از گالری سبحان"></div>
+            </div>
+        </section>
+
+        <!-- ۵. کارهای آزاد -->
+        <section id="free-works" class="gallery-section" style="border-color: var(--accent-color);">
+            <h2 style="color: #fff; margin-top:0;">کارهای آزاد</h2>
+            <p style="color: var(--accent-color); font-weight: bold;">آثار استودیویی و تجربی</p>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="photo_2024-05-10_15-37-22.jpg" alt="کار آزاد"></div>
+                <div class="gallery-item"><img src="photo_2024-05-10_15-37-09.jpg" alt="کار آزاد"></div>
+                <div class="gallery-item"><img src="photo_2024-05-10_15-37-19.jpg" alt="کار آزاد"></div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- فوتر -->
+    <footer>
+        <p>تمامی حقوق محفوظ است © ۲۰۲۶ | صبا کفیلی</p>
+    </footer>
 
 </body>
 </html>
