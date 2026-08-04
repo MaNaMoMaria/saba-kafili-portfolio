@@ -25,9 +25,9 @@
             scroll-behavior: smooth;
         }
 
-        /* کاور فشرده‌تر و جذاب بالا */
+        /* کاور بالا */
         .hero-cover {
-            height: 360px;
+            height: 340px;
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.9)), url('images/Novan_Middle_01.png') center/cover no-repeat;
             filter: saturate(1.3) brightness(1.05);
             display: flex;
@@ -82,35 +82,70 @@
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 40px 20px;
         }
 
-        /* بخش درباره هنرمند */
+        /* بخش درباره هنرمند (آکاردئونی / باز و بسته‌شو) */
         .about-section {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
             border-right: 4px solid var(--accent-color);
-            padding: 30px 35px;
+            padding: 25px 30px;
             border-radius: 12px;
             margin-bottom: 50px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.02);
         }
 
         .about-section h2 {
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             color: #0f172a;
             margin-top: 0;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
-        .about-section p {
+        .about-text-container {
+            position: relative;
+        }
+
+        .about-preview {
             font-size: 1.05rem;
             color: var(--text-main);
             text-align: justify;
             margin: 0;
             line-height: 2.1;
+        }
+
+        /* محتوای پنهان بیانیه */
+        .about-full {
+            display: none;
+            font-size: 1.05rem;
+            color: var(--text-main);
+            text-align: justify;
+            margin: 0;
+            line-height: 2.1;
+        }
+
+        .about-toggle-btn {
+            background: none;
+            border: none;
+            color: var(--accent-color);
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: bold;
+            cursor: pointer;
+            padding: 0;
+            margin-top: 15px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: opacity 0.2s;
+        }
+
+        .about-toggle-btn:hover {
+            opacity: 0.8;
+            text-decoration: underline;
         }
 
         .section-title {
@@ -121,15 +156,15 @@
             color: #0f172a;
         }
 
-        /* گرید نمایشگاه‌ها با عکس‌های بزرگ‌تر و مستطیلی متناسب */
+        /* گرید نمایشگاه‌ها (عکس بزرگ در بالا، توضیحات بسیار کم در پایین) */
         .exhibitions-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
         }
 
         .exhibition-card {
-            background: var(--card-bg);
+            background: #ffffff;
             border: 1px solid var(--border-color);
             border-radius: 12px;
             overflow: hidden;
@@ -137,58 +172,60 @@
             color: inherit;
             transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             display: flex;
-            flex-direction: row;
-            align-items: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-            height: 150px; /* افزایش ارتفاع برای بزرگ‌تر شدن عکس */
+            flex-direction: column; /* چیدمان عمودی: عکس بالا، متن پایین */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
         }
 
         .exhibition-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-6px);
             border-color: var(--accent-color);
-            box-shadow: 0 12px 25px rgba(194, 155, 56, 0.15);
-            background: #ffffff;
+            box-shadow: 0 15px 30px rgba(194, 155, 56, 0.15);
         }
 
-        /* کانتینر عکس بزرگ‌تر در سمت راست */
+        /* کانتینر عکس بزرگ در بالای کارت */
         .card-img-container {
-            width: 180px; /* بزرگ‌تر شدن عرض تصویر در کارت */
-            height: 100%;
+            width: 100%;
+            height: 320px; /* فضای خیلی بزرگ برای عکس */
             overflow: hidden;
             background: #f1f5f9;
-            flex-shrink: 0;
         }
 
         .card-img-container img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: transform 0.6s ease;
         }
 
         .exhibition-card:hover .card-img-container img {
-            transform: scale(1.08);
+            transform: scale(1.06);
         }
 
+        /* بخش توضیحات خیلی کم در پایین کارت */
         .card-content {
-            padding: 15px 25px;
+            padding: 15px 20px;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            flex-grow: 1;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--card-bg);
+            border-top: 1px solid var(--border-color);
         }
 
         .card-content h3 {
-            font-size: 1.1rem;
-            margin: 0 0 6px 0;
+            font-size: 1rem;
+            margin: 0;
             color: #0f172a;
             font-weight: bold;
         }
 
         .card-content span {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--accent-color);
             font-weight: bold;
+            background: #fff;
+            padding: 3px 10px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
         }
 
         /* فوتر */
@@ -206,8 +243,7 @@
             .hero-cover { height: auto; padding: 25px 15px; }
             .hero-content h1 { font-size: 2.3rem; }
             .top-nav { flex-wrap: wrap; justify-content: center; padding: 10px 15px; }
-            .exhibition-card { height: auto; flex-direction: column; }
-            .card-img-container { width: 100%; height: 180px; }
+            .card-img-container { height: 260px; }
         }
     </style>
 </head>
@@ -229,10 +265,18 @@
 
     <div class="container">
         
-        <!-- درباره هنرمند -->
+        <!-- درباره هنرمند (آکاردئونی) -->
         <section class="about-section">
             <h2>درباره هنرمند</h2>
-            <p>فعالیت هنری من بر تجربه‌گرایی در متریال و جست‌وجوی ظرفیت‌های بیانی مواد مختلف استوار است. در فرآیند خلق آثار، بسته به ایده و مفهوم هر پروژه، از نقاشی، کلاژ یا عناصر حجمی استفاده می‌کنم و گاهی نیز این رسانه‌ها را در کنار یکدیگر به کار می‌گیرم. برای من، انتخاب مدیوم بخشی از شکل‌گیری ایده است و هر اثر مسیر و زبان بصری خود را می‌طلبد. طبیعت یکی از مهم‌ترین سرچشمه‌های الهام در کارهایم است؛ نه صرفاً به‌عنوان موضوع، بلکه به‌عنوان بستری برای مطالعه‌ی بافت، رشد، دگرگونی، فرسایش و روابط میان عناصر. علاقه‌مندم از طریق آزمون و خطا با متریال‌های گوناگون، کیفیت‌های بصری و حسی تازه‌ای کشف کنم و امکان‌های متفاوت هر ماده را در فرآیند خلق اثر بیازمایم. برای من، فرآیند خلق اثر به اندازه‌ی نتیجه اهمیت دارد. تجربه، کشف و تعامل با مواد، هسته‌ی اصلی رویکرد هنری‌ام را شکل می‌دهد و هر پروژه فرصتی است برای شناخت عمیق‌تر رابطه‌ی میان طبیعت، ماده و بیان بصری.</p>
+            <div class="about-text-container">
+                <p class="about-preview" id="aboutPreview">
+                    فعالیت هنری من بر تجربه‌گرایی در متریال و جست‌وجوی ظرفیت‌های بیانی مواد مختلف استوار است. در فرآیند خلق آثار، بسته به ایده و مفهوم هر پروژه، از نقاشی، کلاژ یا عناصر حجمی استفاده می‌کنم و گاهی نیز این رسانه‌ها را در کنار یکدیگر به کار می‌گیرم...
+                </p>
+                <div class="about-full" id="aboutFull">
+                    فعالیت هنری من بر تجربه‌گرایی در متریال و جست‌وجوی ظرفیت‌های بیانی مواد مختلف استوار است. در فرآیند خلق آثار، بسته به ایده و مفهوم هر پروژه، از نقاشی، کلاژ یا عناصر حجمی استفاده می‌کنم و گاهی نیز این رسانه‌ها را در کنار یکدیگر به کار می‌گیرم. برای من، انتخاب مدیوم بخشی از شکل‌گیری ایده است و هر اثر مسیر و زبان بصری خود را می‌طلبد. طبیعت یکی از مهم‌ترین سرچشمه‌های الهام در کارهایم است؛ نه صرفاً به‌عنوان موضوع، بلکه به‌عنوان بستری برای مطالعه‌ی بافت، رشد، دگرگونی، فرسایش و روابط میان عناصر. علاقه‌مندم از طریق آزمون و خطا با متریال‌های گوناگون، کیفیت‌های بصری و حسی تازه‌ای کشف کنم و امکان‌های متفاوت هر ماده را در فرآیند خلق اثر بیازمایم. برای من، فرآیند خلق اثر به اندازه‌ی نتیجه اهمیت دارد. تجربه، کشف و تعامل با مواد، هسته‌ی اصلی رویکرد هنری‌ام را شکل می‌دهد و هر پروژه فرصتی است برای شناخت عمیق‌تر رابطه‌ی میان طبیعت، ماده و بیان بصری.
+                </div>
+                <button class="about-toggle-btn" id="toggleBtn" onclick="toggleAbout()">ادامه مطلب ↓</button>
+            </div>
         </section>
 
         <h2 class="section-title">فهرست نمایشگاه‌ها و آثار</h2>
@@ -300,7 +344,7 @@
                 </div>
                 <div class="card-content">
                     <h3>کارهای آزاد</h3>
-                    <span>آثار بدون نمایشگاه / استودیو</span>
+                    <span>آثار استودیو</span>
                 </div>
             </a>
         </div>
@@ -309,6 +353,25 @@
     <footer>
         <p>تمامی حقوق محفوظ است © ۲۰۲۶ | صبا کفیلی</p>
     </footer>
+
+    <!-- اسکریپت ساده برای دکمه باز و بسته کردن بیانیه هنرمند -->
+    <script>
+        function toggleAbout() {
+            const fullText = document.getElementById('aboutFull');
+            const previewText = document.getElementById('aboutPreview');
+            const btn = document.getElementById('toggleBtn');
+
+            if (fullText.style.display === 'block') {
+                fullText.style.display = 'none';
+                previewText.style.display = 'block';
+                btn.innerHTML = 'ادامه مطلب ↓';
+            } else {
+                fullText.style.display = 'block';
+                previewText.style.display = 'none';
+                btn.innerHTML = 'بستن متن ↑';
+            }
+        }
+    </script>
 
 </body>
 </html>
