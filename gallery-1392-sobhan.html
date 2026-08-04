@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>نمایشگاه گروهی گالری سبحان ۱۳۹۲ (ویترین) | صبا کفیلی</title>
+    <title>نمایشگاه گروهی گالری سبحان (ویترین) | صبا کفیلی</title>
     
     <style>
         :root {
-            --bg-color: #0d1322;
-            --card-bg: #131b2e;
-            --text-main: #f0f6fc;
-            --text-muted: #9fb0c7;
-            --accent-color: #e5b53b;
-            --border-color: #21304d;
+            --bg-color: #ffffff;
+            --card-bg: #f8fafc;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --accent-color: #000000;
+            --border-color: #cbd5e1;
         }
 
         body {
@@ -31,7 +31,7 @@
             align-items: center;
             padding: 20px 40px;
             border-bottom: 1px solid var(--border-color);
-            background: rgba(13, 19, 34, 0.9);
+            background: rgba(255, 255, 255, 0.9);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -50,8 +50,68 @@
         }
 
         .back-btn:hover {
-            border-color: var(--accent-color);
-            color: var(--accent-color);
+            border-color: #000000;
+            color: #000000;
+        }
+
+        /* منوی همبرگری در بالا */
+        .menu-container {
+            position: relative;
+        }
+
+        .menu-toggle-btn {
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid var(--border-color);
+            color: #000000;
+            width: 45px;
+            height: 45px;
+            border-radius: 10px;
+            font-size: 1.4rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle-btn:hover {
+            background: #000000;
+            color: #ffffff;
+            border-color: #000000;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 55px;
+            left: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            width: 220px;
+            flex-direction: column;
+            gap: 8px;
+            z-index: 1000;
+        }
+
+        .dropdown-menu a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: bold;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: background 0.2s;
+            display: block;
+        }
+
+        .dropdown-menu a:hover {
+            background: var(--card-bg);
+            color: #000000;
         }
 
         /* محتوای اصلی و توضیحات */
@@ -68,89 +128,109 @@
         }
 
         .gallery-header h1 {
-            font-size: 2.8rem;
-            color: #ffffff;
-            margin-bottom: 15px;
+            font-size: 2.5rem;
+            color: #000000;
+            margin-bottom: 10px;
+        }
+
+        .gallery-header h1 span {
+            font-size: 1.3rem;
+            display: block;
+            font-weight: normal;
+            color: var(--text-muted);
+            margin-top: 5px;
+            font-family: Arial, sans-serif;
+            direction: ltr;
         }
 
         .gallery-subtitle {
-            font-size: 1.5rem;
-            color: var(--accent-color);
-            margin-bottom: 25px;
+            font-size: 1.2rem;
+            color: #000000;
+            margin-bottom: 20px;
             font-weight: bold;
         }
 
-        .gallery-desc {
-            max-width: 850px;
-            margin: 0 auto;
-            font-size: 1.2rem;
+        .gallery-subtitle span {
+            font-size: 1rem;
+            display: block;
+            font-weight: normal;
             color: var(--text-muted);
+            margin-top: 3px;
+            font-family: Arial, sans-serif;
+            direction: ltr;
+        }
+
+        .gallery-desc {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.15rem;
+            color: var(--text-main);
             background: var(--card-bg);
             padding: 25px 35px;
             border-radius: 15px;
             border: 1px solid var(--border-color);
-            border-right: 4px solid var(--accent-color);
+            border-right: 4px solid #000000;
             text-align: justify;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
             line-height: 2.1;
         }
 
-        /* گالری تصاویر با موشن زیبا */
+        .gallery-desc-en {
+            direction: ltr;
+            text-align: left;
+            font-family: Arial, sans-serif;
+            color: var(--text-muted);
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px dashed var(--border-color);
+            font-size: 1rem;
+        }
+
+        /* گرید تصاویر (بدون هیچ‌گونه نوشته در زیر عکس‌ها) */
         .image-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
         }
 
-        .image-item-wrapper {
-            background: var(--card-bg);
+        .artwork-card {
+            background: #ffffff;
             border: 1px solid var(--border-color);
             border-radius: 12px;
             overflow: hidden;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-            transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
             display: flex;
             flex-direction: column;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
         }
 
-        .image-item-wrapper:nth-child(1) { animation-delay: 0.1s; }
-        .image-item-wrapper:nth-child(2) { animation-delay: 0.2s; }
-        .image-item-wrapper:nth-child(3) { animation-delay: 0.3s; }
-
-        .image-item-wrapper:hover {
-            transform: translateY(-8px);
-            border-color: var(--accent-color);
-            box-shadow: 0 15px 30px rgba(229, 181, 59, 0.2);
+        .artwork-card:hover {
+            transform: translateY(-6px);
+            border-color: #000000;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
         }
 
         .image-container {
             width: 100%;
-            height: 260px;
+            height: 320px;
             overflow: hidden;
+            background: #f8fafc; /* پس‌زمینه هماهنگ برای کامل دیده شدن تصویر بدون برش */
             cursor: pointer;
-            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
         }
 
         .image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* تضمین نمایش کامل عکس پیش از کلیک بدون برش */
+            transition: transform 0.6s ease;
         }
 
-        .image-container:hover img {
-            transform: scale(1.08);
-        }
-
-        .image-caption {
-            padding: 15px 20px;
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            border-top: 1px solid var(--border-color);
-            text-align: center;
-            background: rgba(19, 27, 46, 0.5);
+        .artwork-card:hover .image-container img {
+            transform: scale(1.04);
         }
 
         /* مدال (بزرگنمایی عکس با کلیک) */
@@ -162,7 +242,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(13, 19, 34, 0.95);
+            background: rgba(0, 0, 0, 0.9);
             backdrop-filter: blur(8px);
             justify-content: center;
             align-items: center;
@@ -197,26 +277,13 @@
         }
 
         .close-lightbox:hover {
-            color: var(--accent-color);
+            color: #cbd5e1;
         }
 
         /* انیمیشن‌ها */
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
         @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes fadeIn {
@@ -235,47 +302,74 @@
             border-top: 1px solid var(--border-color);
             color: var(--text-muted);
             margin-top: 80px;
+            background: #f8fafc;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .top-bar { padding: 15px 20px; }
+            .gallery-header h1 { font-size: 2rem; }
+            .image-container { height: 260px; }
         }
     </style>
 </head>
 <body>
 
     <div class="top-bar">
-        <a href="index.html" class="back-btn">← بازگشت به صفحه اصلی</a>
-        <span style="color: var(--accent-color); font-weight: bold;">گالری سبحان (۱۳۹۲)</span>
+        <a href="index.html" class="back-btn">← بازگشت به صفحه اصلی / Back</a>
+        
+        <!-- منوی همبرگری -->
+        <div class="menu-container">
+            <button class="menu-toggle-btn" onclick="toggleMenu()" aria-label="منوی سایت">
+                ☰
+            </button>
+            <div class="dropdown-menu" id="dropdownMenu">
+                <a href="index.html">صفحه اصلی / Home</a>
+                <a href="mailto:kafilisaba@gmail.com">ارسال ایمیل / Email</a>
+                <a href="https://instagram.com/saba_kafili_art" target="_blank">اینستاگرام / Instagram</a>
+            </div>
+        </div>
     </div>
 
     <div class="container">
         <div class="gallery-header">
-            <h1>نمایشگاه گروهی، گالری سبحان (۱۳۹۲)</h1>
-            <div class="gallery-subtitle">ویترین</div>
+            <h1>نمایشگاه گروهی، گالری سبحان (۱۳۹۲)<span>Group Exhibition, Sobhan Gallery (2013)</span></h1>
+            <div class="gallery-subtitle">
+                ویترین
+                <span>Showcase</span>
+            </div>
             <div class="gallery-desc">
                 پشت هر ویترین، روایتی از میل، مصرف و هویت پنهان است؛ جایی که نگاه، پیش از انتخاب، قضاوت می‌کند.
+                <div class="gallery-desc-en">
+                    Behind every showcase lies a narrative of desire, consumption, and hidden identity; where the gaze judges before making a choice.
+                </div>
             </div>
         </div>
 
-        <!-- لیست تصاویر گالری سبحان ۱۳۹۲ -->
+        <!-- گرید تصاویر گالری سبحان (بدون هیچ متنی زیر تصاویر) -->
         <div class="image-grid">
-            <div class="image-item-wrapper">
+
+            <!-- اثر ۱ -->
+            <div class="artwork-card">
                 <div class="image-container" onclick="openLightbox('images/Sobhan_Gallery_02.png')">
                     <img src="images/Sobhan_Gallery_02.png" alt="Sobhan Gallery 02">
                 </div>
-                <div class="image-caption">ویترین - گالری سبحان ۱۳۹۲</div>
             </div>
 
-            <div class="image-item-wrapper">
+            <!-- اثر ۲ -->
+            <div class="artwork-card">
                 <div class="image-container" onclick="openLightbox('images/Sobhan_Gallery_03.png')">
                     <img src="images/Sobhan_Gallery_03.png" alt="Sobhan Gallery 03">
                 </div>
-                <div class="image-caption">ویترین - گالری سبحان ۱۳۹۲</div>
             </div>
 
-            <div class="image-item-wrapper">
+            <!-- اثر ۳ -->
+            <div class="artwork-card">
                 <div class="image-container" onclick="openLightbox('images/Sobhan_Gallery_04.png')">
                     <img src="images/Sobhan_Gallery_04.png" alt="Sobhan Gallery 04">
                 </div>
-                <div class="image-caption">ویترین - گالری سبحان ۱۳۹۲</div>
             </div>
+
         </div>
     </div>
 
@@ -286,7 +380,7 @@
     </div>
 
     <footer>
-        <p>تمامی حقوق محفوظ است © ۲۰۲۶ | صبا کفیلی</p>
+        <p>تمامی حقوق محفوظ است © ۲۰۲۶ صبا کفیلی | All Rights Reserved © 2026 Saba Kafili</p>
     </footer>
 
     <script>
@@ -300,6 +394,25 @@
         function closeLightbox() {
             const lightbox = document.getElementById('lightbox');
             lightbox.classList.remove('active');
+        }
+
+        function toggleMenu() {
+            const menu = document.getElementById('dropdownMenu');
+            if (menu.style.display === 'flex') {
+                menu.style.display = 'none';
+            } else {
+                menu.style.display = 'flex';
+            }
+        }
+
+        // بستن منو با کلیک در بیرون از آن
+        window.onclick = function(event) {
+            if (!event.target.matches('.menu-toggle-btn') && !event.target.closest('.menu-toggle-btn')) {
+                const menu = document.getElementById('dropdownMenu');
+                if (menu && menu.style.display === 'flex') {
+                    menu.style.display = 'none';
+                }
+            }
         }
     </script>
 
