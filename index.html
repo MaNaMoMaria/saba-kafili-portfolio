@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>پورتفولیو صبا کفیلی | Saba Kafili Portfolio</title>
+    
+    <!-- کتابخانه استاندارد برای نمایش مدل‌های سه‌بعدی در وب -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+
     <style>
         :root {
-            --bg-color: #0d1322; /* سرمه‌ای تیره لوکس */
+            --bg-color: #0d1322; /* سرمه‌ای تیره و لوکس */
             --card-bg: #131b2e;
             --text-main: #f0f6fc;
             --text-muted: #9fb0c7;
@@ -24,10 +28,10 @@
             scroll-behavior: smooth;
         }
 
-        /* کاور رنگ‌دار و زیبا با تم سرمه‌ای */
+        /* کاور رنگ‌دار و شفاف با تم سرمه‌ای و عکس پس‌زمینه */
         .hero-cover {
-            height: 480px;
-            background: linear-gradient(to bottom, rgba(13, 19, 34, 0.4), rgba(13, 19, 34, 0.95)), url('photo_2026-08-04_09-05-57.png') center/cover no-repeat;
+            height: 500px;
+            background: linear-gradient(135deg, rgba(13, 19, 34, 0.82), rgba(13, 19, 34, 0.92)), url('Evan_Wave_06.png') center/cover no-repeat;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -37,16 +41,16 @@
             text-align: center;
         }
 
-        /* منوی راه‌های ارتباطی و دکمه‌های بزرگ‌تر و مرتب در بالا */
+        /* منوی راه‌های ارتباطی در بالا */
         .top-nav {
             display: flex;
             gap: 20px;
-            background: rgba(19, 27, 46, 0.9);
+            background: rgba(19, 27, 46, 0.85);
             backdrop-filter: blur(12px);
             padding: 12px 30px;
             border-radius: 40px;
             border: 1px solid var(--border-color);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
         }
 
         .top-nav a {
@@ -55,7 +59,6 @@
             font-size: 1rem;
             font-weight: bold;
             transition: all 0.3s ease;
-            position: relative;
         }
 
         .top-nav a:hover {
@@ -68,8 +71,7 @@
             margin: 0 0 10px 0;
             color: #ffffff;
             font-weight: 700;
-            letter-spacing: -1px;
-            text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            text-shadow: 0 4px 20px rgba(0,0,0,0.6);
         }
 
         .hero-content p {
@@ -101,7 +103,7 @@
             margin-bottom: 80px;
         }
 
-        /* کارت‌های نمایشگاه با انیمیشن نرم */
+        /* کارت‌های نمایشگاه با انیمیشن */
         .exhibition-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -169,6 +171,13 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
+        .gallery-desc {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-bottom: 25px;
+            line-height: 2;
+        }
+
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -196,7 +205,25 @@
             object-fit: cover;
         }
 
-        /* فوتر ساده و شیک */
+        /* استایل مدل سه‌بعدی */
+        .model-container {
+            margin-top: 35px;
+            background: #0b101c;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        model-viewer {
+            width: 100%;
+            height: 420px;
+            background-color: #0d1322;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        /* فوتر */
         footer {
             text-align: center;
             padding: 40px 0;
@@ -214,7 +241,7 @@
 </head>
 <body>
 
-    <!-- کاور و منوی بالای صفحه -->
+    <!-- کاور با عکس پس‌زمینه دلخواه و لایه سرمه‌ای شفاف -->
     <header class="hero-cover">
         <nav class="top-nav">
             <a href="#exhibitions">نمایشگاه‌ها</a>
@@ -235,10 +262,10 @@
         <h2 class="section-title">فهرست نمایشگاه‌ها و آثار</h2>
         
         <div class="exhibitions-grid">
-            <!-- نمایشگاه ۱ -->
+            <!-- نمایشگاه ۱: گالری ایوان -->
             <a href="#evan-gallery" class="exhibition-card">
                 <div class="card-img-container">
-                    <img src="Evan_Wave_01.png" alt="گالری ایوان">
+                    <img src="Evan_Wave_06.png" alt="گالری ایوان">
                 </div>
                 <div class="card-content">
                     <h3>نمایشگاه گروهی، گالری ایوان</h3>
@@ -292,16 +319,39 @@
         </div>
 
 
-        <!-- بخش گالری‌ها -->
+        <!-- بخش جزئیات گالری‌ها -->
 
+        <!-- ۱. گالری ایوان (شامل متن، عکس‌های متعدد و مدل سه‌بعدی تعاملی) -->
         <section id="evan-gallery" class="gallery-section">
             <h2 style="color: #fff; margin-top:0;">نمایشگاه گروهی، گالری ایوان</h2>
             <p style="color: var(--accent-color); font-weight: bold;">سال ۱۴۰۲</p>
+            <p class="gallery-desc">
+                مجموعه‌ای از آثار حجم معلق و ترکیب متریال که به بررسی مفاهیم سیالیت، فرم‌های استوانه‌ای رنگی و بازتعریف فضا در گالری ایوان می‌پردازد.
+            </p>
+            
+            <!-- عکس‌های گالری ایوان -->
             <div class="gallery-grid">
-                <div class="gallery-item"><img src="Evan_Wave_01.png" alt="اثری از گالری ایوان"></div>
+                <div class="gallery-item"><img src="Evan_Wave_06.png" alt="نمایشگاه ایوان"></div>
+                <div class="gallery-item"><img src="Evan_Wave_07.png" alt="نمای دیگر از اثر ایوان"></div>
+            </div>
+
+            <!-- بخش مدل سه‌بعدی تعاملی -->
+            <div class="model-container">
+                <h3 style="color: #fff; margin-bottom: 5px; font-size: 1.1rem;">مدل سه‌بعدی تعاملی اثر</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">برای چرخاندن اثر، با موس یا انگشت آن را بکشید.</p>
+                
+                <!-- تگ نمایش مدل سه‌بعدی (فایل خروجی glb با نام Evan_Wave_3D_01) -->
+                <model-viewer 
+                    src="Evan_Wave_3D_01.glb" 
+                    alt="Evan_Wave 3D 01" 
+                    auto-rotate 
+                    camera-controls 
+                    shadow-intensity="1">
+                </model-viewer>
             </div>
         </section>
 
+        <!-- ۲. گالری نووان -->
         <section id="novan-gallery" class="gallery-section">
             <h2 style="color: #fff; margin-top:0;">نمایشگاه گروهی، گالری نووان</h2>
             <p style="color: var(--accent-color); font-weight: bold;">سال ۱۴۰۰</p>
@@ -310,6 +360,7 @@
             </div>
         </section>
 
+        <!-- ۳. گالری سبحان ۱۳۹۲ -->
         <section id="sobhan-92" class="gallery-section">
             <h2 style="color: #fff; margin-top:0;">نمایشگاه گروهی، گالری سبحان</h2>
             <p style="color: var(--accent-color); font-weight: bold;">سال ۱۳۹۲</p>
@@ -318,6 +369,7 @@
             </div>
         </section>
 
+        <!-- ۴. گالری سبحان ۱۳۹۰ -->
         <section id="sobhan-90" class="gallery-section">
             <h2 style="color: #fff; margin-top:0;">نمایشگاه گروهی، گالری سبحان</h2>
             <p style="color: var(--accent-color); font-weight: bold;">سال ۱۳۹۰</p>
@@ -326,6 +378,7 @@
             </div>
         </section>
 
+        <!-- ۵. کارهای آزاد -->
         <section id="free-works" class="gallery-section" style="border-color: var(--accent-color);">
             <h2 style="color: #fff; margin-top:0;">کارهای آزاد</h2>
             <p style="color: var(--accent-color); font-weight: bold;">آثار استودیویی و تجربی</p>
