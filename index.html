@@ -4,9 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>پورتفولیو صبا کفیلی | Saba Kafili Portfolio</title>
-    
-    <!-- کتابخانه استاندارد برای نمایش مدل‌های سه‌بعدی در وب -->
-    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
 
     <style>
         :root {
@@ -95,7 +92,7 @@
             color: #ffffff;
         }
 
-        /* فقط همین یک لیست نمایشگاه‌ها در صفحه قرار دارد */
+        /* لیست نمایشگاه‌ها */
         .exhibitions-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -178,7 +175,7 @@
 </head>
 <body>
 
-    <!-- کاور بالا با عکس جذاب‌تر، رنگی‌شده و شفاف Novan_Middle_01 -->
+    <!-- کاور بالا -->
     <header class="hero-cover">
         <nav class="top-nav">
             <a href="index.html">صفحه اصلی</a>
@@ -195,63 +192,67 @@
     <div class="container">
         <h2 class="section-title">فهرست نمایشگاه‌ها و آثار</h2>
         
-        <!-- تنها لیست تمیز و اصلی بدون تکرار -->
-       <div class="exhibitions-grid">
-    <!-- گالری ایوان ۱۴۰۲ -->
-    <a href="gallery-1402-evan.html" class="exhibition-card">
-        <div class="card-img-container">
-            <img src="images/Evan_Wave_01.png" alt="گالری ایوان">
-        </div>
-        <div class="card-content">
-            <h3>نمایشگاه گروهی، گالری ایوان</h3>
-            <span>۱۴۰۲</span>
-        </div>
-    </a>
+        <div class="exhibitions-grid">
+            <!-- گالری ایوان ۱۴۰۲ -->
+            <a href="gallery-1402-evan.html" class="exhibition-card">
+                <div class="card-img-container">
+                    <img src="images/Evan_Wave_01.png" alt="گالری ایوان">
+                </div>
+                <div class="card-content">
+                    <h3>نمایشگاه گروهی، گالری ایوان</h3>
+                    <span>۱۴۰۲</span>
+                </div>
+            </a>
 
-    <!-- گالری نووان ۱۴۰۰ -->
-    <a href="gallery-1400-novan.html" class="exhibition-card">
-        <div class="card-img-container">
-            <img src="images/Novan_Middle_01.png" alt="گالری نووان">
-        </div>
-        <div class="card-content">
-            <h3>نمایشگاه گروهی، گالری نووان</h3>
-            <span>۱۴۰۰</span>
-        </div>
-    </a>
+            <!-- گالری نووان ۱۴۰۰ -->
+            <a href="gallery-1400-novan.html" class="exhibition-card">
+                <div class="card-img-container">
+                    <img src="images/Novan_Middle_01.png" alt="گالری نووان">
+                </div>
+                <div class="card-content">
+                    <h3>نمایشگاه گروهی، گالری نووان</h3>
+                    <span>۱۴۰۰</span>
+                </div>
+            </a>
 
-    <!-- گالری سبحان ۱۳۹۲ -->
-    <a href="gallery-1392-sobhan.html" class="exhibition-card">
-        <div class="card-img-container">
-            <img src="images/Sobhan_Gallery_01.png" alt="گالری سبحان ۱۳۹۲">
-        </div>
-        <div class="card-content">
-            <h3>نمایشگاه گروهی، گالری سبحان</h3>
-            <span>۱۳۹۲</span>
-        </div>
-    </a>
+            <!-- گالری سبحان ۱۳۹۲ -->
+            <a href="gallery-1392-sobhan.html" class="exhibition-card">
+                <div class="card-img-container">
+                    <img src="images/Sobhan_Gallery_01.png" alt="گالری سبحان ۱۳۹۲">
+                </div>
+                <div class="card-content">
+                    <h3>نمایشگاه گروهی، گالری سبحان</h3>
+                    <span>۱۳۹۲</span>
+                </div>
+            </a>
 
-    <!-- گالری سبحان ۱۳۹۰ -->
-    <a href="gallery-1390-sobhan.html" class="exhibition-card">
-        <div class="card-img-container">
-            <img src="images/Sobhan_Gender_01.png" alt="گالری سبحان ۱۳۹۰">
-        </div>
-        <div class="card-content">
-            <h3>نمایشگاه گروهی، گالری سبحان</h3>
-            <span>۱۳۹۰</span>
-        </div>
-    </a>
+            <!-- گالری سبحان ۱۳۹۰ -->
+            <a href="gallery-1390-sobhan.html" class="exhibition-card">
+                <div class="card-img-container">
+                    <img src="images/Sobhan_Gender_01.png" alt="گالری سبحان ۱۳۹۰">
+                </div>
+                <div class="card-content">
+                    <h3>نمایشگاه گروهی، گالری سبحان</h3>
+                    <span>۱۳۹۰</span>
+                </div>
+            </a>
 
-    <!-- کارهای آزاد 0000 -->
-    <a href="gallery-0000-free-works.html" class="exhibition-card" style="border-color: var(--accent-color);">
-        <div class="card-img-container">
-            <img src="images/photo_2024-05-10_15-37-22.png" alt="کارهای آزاد">
+            <!-- کارهای آزاد 0000 -->
+            <a href="gallery-0000-free-works.html" class="exhibition-card" style="border-color: var(--accent-color);">
+                <div class="card-img-container">
+                    <img src="images/photo_2024-05-10_15-37-22.png" alt="کارهای آزاد">
+                </div>
+                <div class="card-content">
+                    <h3>کارهای آزاد</h3>
+                    <span>آثار بدون نمایشگاه / استودیو</span>
+                </div>
+            </a>
         </div>
-        <div class="card-content">
-            <h3>کارهای آزاد</h3>
-            <span>آثار بدون نمایشگاه / استودیو</span>
-        </div>
-    </a>
-</div>
+    </div>
+
+    <footer>
+        <p>تمامی حقوق محفوظ است © ۲۰۲۶ | صبا کفیلی</p>
+    </footer>
 
 </body>
 </html>
