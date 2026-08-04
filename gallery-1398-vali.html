@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نمایشگاه گروهی گالری والی (۱۳۹۸) | صبا کفیلی</title>
+    
+    <style>
+        :root {
+            --bg-color: #0d1322;
+            --card-bg: #131b2e;
+            --text-main: #f0f6fc;
+            --text-muted: #9fb0c7;
+            --accent-color: #e5b53b;
+            --border-color: #21304d;
+        }
+
+        body {
+            font-family: 'Tahoma', 'B Nazanin', Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.9;
+        }
+
+        /* هدر و ناوبری */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            border-bottom: 1px solid var(--border-color);
+            background: rgba(13, 19, 34, 0.9);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .back-btn {
+            color: var(--text-main);
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        /* محتوای اصلی و توضیحات */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .gallery-header h1 {
+            font-size: 2.8rem;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .gallery-desc {
+            max-width: 850px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            background: var(--card-bg);
+            padding: 25px 35px;
+            border-radius: 15px;
+            border: 1px solid var(--border-color);
+            border-right: 4px solid var(--accent-color);
+            text-align: justify;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            line-height: 2.1;
+        }
+
+        /* گالری تصاویر با موشن زیبا */
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .image-item-wrapper {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+            transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* تأخیر زمانی آبشاری برای کارت‌ها */
+        .image-item-wrapper:nth-child(1) { animation-delay: 0.1s; }
+        .image-item-wrapper:nth-child(2) { animation-delay: 0.2s; }
+        .image-item-wrapper:nth-child(3) { animation-delay: 0.3s; }
+        .image-item-wrapper:nth-child(4) { animation-delay: 0.4s; }
+        .image-item-wrapper:nth-child(5) { animation-delay: 0.5s; }
+
+        .image-item-wrapper:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-color);
+            box-shadow: 0 15px 30px rgba(229, 181, 59, 0.2);
+        }
+
+        .image-container {
+            width: 100%;
+            height: 260px;
+            overflow: hidden;
+            cursor: pointer;
+            background: #000;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .image-container:hover img {
+            transform: scale(1.08);
+        }
+
+        .image-caption {
+            padding: 15px 20px;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            background: rgba(19, 27, 46, 0.5);
+        }
+
+        /* مدال (بزرگنمایی عکس با کلیک) */
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(13, 19, 34, 0.95);
+            backdrop-filter: blur(8px);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .lightbox-modal.active {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 8px;
+            border: 2px solid var(--border-color);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+            object-fit: contain;
+            animation: zoomIn 0.3s ease;
+        }
+
+        .close-lightbox {
+            position: absolute;
+            top: 25px;
+            left: 35px;
+            color: #fff;
+            font-size: 2.5rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            transition: color 0.3s;
+        }
+
+        .close-lightbox:hover {
+            color: var(--accent-color);
+        }
+
+        /* انیمیشن‌ها */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            margin-top: 80px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <a href="index.html" class="back-btn">← بازگشت به صفحه اصلی</a>
+        <span style="color: var(--accent-color); font-weight: bold;">گالری والی (۱۳۹۸)</span>
+    </div>
+
+    <div class="container">
+        <div class="gallery-header">
+            <h1>نمایشگاه گروهی، گالری والی (۱۳۹۸)</h1>
+            <div class="gallery-desc">
+                خاورميانه ، گالوانيزه و پاپيه ماشه ، قطر ٥٨ سانتيمتر، ١٣۹۸
+            </div>
+        </div>
+
+        <!-- لیست تصاویر گالری والی -->
+        <div class="image-grid">
+            <div class="image-item-wrapper">
+                <div class="image-container" onclick="openLightbox('images/Vali_01.png')">
+                    <img src="images/Vali_01.png" alt="Vali 01">
+                </div>
+                <div class="image-caption">خاورميانه ، گالوانيزه و پاپيه ماشه ، قطر ٥٨ سانتيمتر، ١٣٩٨</div>
+            </div>
+
+            <div class="image-item-wrapper">
+                <div class="image-container" onclick="openLightbox('images/Vali_02.png')">
+                    <img src="images/Vali_02.png" alt="Vali 02">
+                </div>
+                <div class="image-caption">خاورميانه ، گالوانيزه و پاپيه ماشه ، قطر ٥٨ سانتيمتر، ١٣٩٨</div>
+            </div>
+
+            <div class="image-item-wrapper">
+                <div class="image-container" onclick="openLightbox('images/Vali_03.png')">
+                    <img src="images/Vali_03.png" alt="Vali 03">
+                </div>
+                <div class="image-caption">خاورميانه ، گالوانيزه و پاپيه ماشه ، قطر ٥٨ سانتيمتر، ١٣٩٨</div>
+            </div>
+
+            <div class="image-item-wrapper">
+                <div class="image-container" onclick="openLightbox('images/Vali_04.png')">
+                    <img src="images/Vali_04.png" alt="Vali 04">
+                </div>
+                <div class="image-caption">خاورميانه ، گالوانيزه و پاپيه ماشه ، قطر ٥٨ سانتيمتر، ١٣٩٨</div>
+            </div>
+
+            <div class="image-item-wrapper">
+                <div class="image-container" onclick="openLightbox('images/Vali_05.png')">
+                    <img src="images/Vali_05.png" alt="Vali 05">
+                </div>
+                <div class="image-caption">خاورميانه ، گالوانيزه و پاپيه ماشه ، قطر ٥٨ سانتيمتر، ١٣٩٨</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- کادر بزرگنمایی عکس (Lightbox) -->
+    <div id="lightbox" class="lightbox-modal" onclick="closeLightbox()">
+        <button class="close-lightbox">&times;</button>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
+
+    <footer>
+        <p>تمامی حقوق محفوظ است © ۲۰۲۶ | صبا کفیلی</p>
+    </footer>
+
+    <script>
+        function openLightbox(src) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = src;
+            lightbox.classList.add('active');
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+        }
+    </script>
+
+</body>
+</html>
