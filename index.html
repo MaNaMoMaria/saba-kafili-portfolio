@@ -11,7 +11,7 @@
             --card-bg: #f8fafc;
             --text-main: #1e293b;
             --text-muted: #64748b;
-            --accent-color: #000000; /* تبدیل تمام رنگ‌های قبلی به مشکی خالص */
+            --accent-color: #000000;
             --border-color: #cbd5e1;
         }
 
@@ -21,20 +21,20 @@
             color: var(--text-main);
             margin: 0;
             padding: 0;
-            line-height: 1.9;
+            line-height: 1.6;
             scroll-behavior: smooth;
         }
 
         /* کاور بالا پهن‌تر و وسیع‌تر */
         .hero-cover {
-            height: 440px;
+            height: 480px;
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.95)), url('images/Novan_Middle_01.png') center/cover no-repeat;
             filter: saturate(1.2) brightness(1.05);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
-            padding: 35px 20px;
+            padding: 30px 20px 20px 20px;
             border-bottom: 2px solid var(--border-color);
             text-align: center;
         }
@@ -63,22 +63,35 @@
             transform: translateY(-2px);
         }
 
+        /* نام و عنوان نزدیک به پایین کاور با فاصله خطوط حداقل */
         .hero-content {
-            margin-top: 15px;
+            margin-bottom: 10px;
+            line-height: 1.2;
         }
 
         .hero-content h1 {
-            font-size: 3.5rem;
-            margin: 0 0 5px 0;
+            font-size: 2.2rem;
+            margin: 0 0 4px 0;
             color: #000000;
             font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .hero-content h1 span {
+            font-size: 1.4rem;
+            display: block;
+            font-weight: normal;
+            color: #334155;
+            margin-top: 2px;
+            line-height: 1.2;
         }
 
         .hero-content p {
-            font-size: 1.25rem;
+            font-size: 1rem;
             color: #000000;
-            margin: 0;
+            margin: 4px 0 0 0;
             font-weight: 600;
+            line-height: 1.2;
         }
 
         .container {
@@ -87,11 +100,11 @@
             padding: 40px 20px;
         }
 
-        /* بخش درباره هنرمند (دو زبانه) */
+        /* بخش درباره هنرمند (دو زبانه و آکاردئونی) */
         .about-section {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-right: 4px solid #000000; /* تغییر نوار کناری به مشکی */
+            border-right: 4px solid #000000;
             padding: 25px 30px;
             border-radius: 12px;
             margin-bottom: 50px;
@@ -118,7 +131,7 @@
             color: var(--text-main);
             text-align: justify;
             margin: 0;
-            line-height: 2.1;
+            line-height: 1.9;
         }
 
         .about-en {
@@ -262,7 +275,7 @@
 
         @media (max-width: 768px) {
             .hero-cover { height: auto; padding: 25px 15px; }
-            .hero-content h1 { font-size: 2.3rem; }
+            .hero-content h1 { font-size: 1.8rem; }
             .top-nav { flex-wrap: wrap; justify-content: center; padding: 10px 15px; }
             .card-img-container { height: 260px; }
         }
@@ -274,11 +287,11 @@
     <header class="hero-cover">
         <nav class="top-nav">
             <a href="index.html">صفحه اصلی / Home</a>
-            <a href="mailto:Saba.kafili@email.com">ارسال ایمیل / Email</a>
+            <a href="mailto:kafilisaba@gmail.com">ارسال ایمیل / Email</a>
             <a href="https://instagram.com/saba_kafili_art" target="_blank">اینستاگرام / Instagram</a>
         </nav>
         <div class="hero-content">
-            <h1>صبا کفیلی<span style="font-size: 2.2rem; display: block; font-weight: normal; color: #334155;">Saba Kafili</span></h1>
+            <h1>صبا کفیلی<span>Saba Kafili</span></h1>
             <p>هنرهای تجسمی | Visual Arts</p>
         </div>
         <div></div>
@@ -321,7 +334,7 @@
                         <h3>نمایشگاه گروهی، گالری ایوان</h3>
                         <span>۱۴۰۲</span>
                     </div>
-                    <p class="card-title-en">Group Exhibition, Evan Gallery</p>
+                    <p class="card-title-en">Group Exhibition, Evan Gallery (2023)</p>
                 </div>
             </a>
 
@@ -335,7 +348,7 @@
                         <h3>نمایشگاه گروهی، گالری نووان</h3>
                         <span>۱۴۰۰</span>
                     </div>
-                    <p class="card-title-en">Group Exhibition, Novan Gallery</p>
+                    <p class="card-title-en">Group Exhibition, Novan Gallery (2021)</p>
                 </div>
             </a>
 
@@ -349,7 +362,7 @@
                         <h3>نمایشگاه گروهی، گالری والی</h3>
                         <span>۱۳۹۸</span>
                     </div>
-                    <p class="card-title-en">Group Exhibition, Vali Gallery</p>
+                    <p class="card-title-en">Group Exhibition, Vali Gallery (2019–2020)</p>
                 </div>
             </a>
 
@@ -363,7 +376,7 @@
                         <h3>نمایشگاه گروهی، گالری سبحان</h3>
                         <span>۱۳۹۲</span>
                     </div>
-                    <p class="card-title-en">Group Exhibition, Sobhan Gallery</p>
+                    <p class="card-title-en">Group Exhibition, Sobhan Gallery (2013–2014)</p>
                 </div>
             </a>
 
@@ -377,7 +390,7 @@
                         <h3>نمایشگاه گروهی، گالری سبحان</h3>
                         <span>۱۳۹۰</span>
                     </div>
-                    <p class="card-title-en">Group Exhibition, Sobhan Gallery</p>
+                    <p class="card-title-en">Group Exhibition, Sobhan Gallery (2011–2012)</p>
                 </div>
             </a>
 
@@ -391,7 +404,7 @@
                         <h3>کارهای آزاد</h3>
                         <span>استودیو</span>
                     </div>
-                    <p class="card-title-en">Free Works / Studio</p>
+                    <p class="card-title-en">Free Works / Studio (2024–Present)</p>
                 </div>
             </a>
         </div>
