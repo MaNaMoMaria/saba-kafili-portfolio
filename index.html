@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پورتفولیو صبا کفیلی | Saba Kafili</title>
+    <style>
+        :root {
+            --bg-color: #fafafa;
+            --text-color: #222222;
+            --accent-color: #666666;
+            --card-bg: #ffffff;
+            --border-color: #e5e5e5;
+        }
+
+        body {
+            font-family: 'Tahoma', 'B Nazanin', Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* هدر و بیوگرافی */
+        header {
+            text-align: center;
+            padding: 60px 0 40px 0;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 50px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin: 15px 0 5px 0;
+            letter-spacing: -1px;
+        }
+
+        header p.subtitle {
+            font-size: 1.1rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        header p.bio {
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1rem;
+            color: #444;
+        }
+
+        /* بخش نمایشگاه‌ها */
+        .exhibition-section {
+            margin-bottom: 80px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.02);
+        }
+
+        .exhibition-title {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            color: var(--text-color);
+        }
+
+        .exhibition-meta {
+            font-size: 0.95rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .exhibition-desc {
+            margin-bottom: 30px;
+            color: #555;
+            font-size: 1rem;
+        }
+
+        /* گالری تصاویر داخل هر نمایشگاه */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            background: #f0f0f0;
+            border-radius: 4px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item img:hover {
+            transform: scale(1.03);
+        }
+
+        /* فوتر و راه‌های ارتباطی */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid var(--border-color);
+            margin-top: 60px;
+            color: var(--accent-color);
+        }
+
+        .contact-links {
+            margin-bottom: 15px;
+        }
+
+        .contact-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .contact-links a:hover {
+            color: #000;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .exhibition-section {
+                padding: 20px;
+            }
+            header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- بخش معرفی هنرمند -->
+    <header>
+        <h1>صبا کفیلی</h1>
+        <p class="subtitle">هنرمند معاصر | مجسمه‌سازی و چیدمان</p>
+        <p class="bio">
+            مجموعه آثار ارائه شده حاصل کاوش در فرم‌های ارگانیک، مواد صنعتی و دگرگونی ساختارها در فضایی مینیمال است.
+        </p>
+    </header>
+
+    <!-- نمایشگاه اول -->
+    <!-- مجموعه داینامیک -->
+    <section class="exhibition-section">
+        <h2 class="exhibition-title">مجموعهٔ «داینامیک»</h2>
+        <div class="exhibition-meta">نمایشگاه انفرادی / گروهی ، ۱۴۰۰</div>
+        <p class="exhibition-desc">مجموعه‌ای از آثار حجم و ترکیب متریال که به بررسی فرم‌های دگرگون‌شده و سیالیت در فضا می‌پردازد.</p>
+        
+        <!-- اثر اول: موج (۱۰۰ × ۱۵۰) -->
+        <div style="margin-bottom: 40px; border-bottom: 1px solid #eee; padding-bottom: 30px;">
+            <h3 style="font-size: 1.3rem; margin-bottom: 5px;">اثری از مجموعه موج</h3>
+            <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">ابعاد: ۱۰۰ × ۱۵۰ سانتی‌متر | ترکیب متریال روی بوم | ۱۴۰۰</p>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="photo_2024-05-10_15-37-22.jpg" alt="موج - ترکیب متریال روی بوم"></div>
+            </div>
+        </div>
+
+        <!-- اثر دوم: موج (۱۲۰۰ سانتی‌متر) -->
+        <div style="margin-bottom: 40px; border-bottom: 1px solid #eee; padding-bottom: 30px;">
+            <h3 style="font-size: 1.3rem; margin-bottom: 5px;">اثری از مجموعه موج</h3>
+            <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">ابعاد: ۱۲۰ سانتی‌متر | ترکیب متریال | ۱۴۰۰</p>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="photo_2024-05-10_15-37-09.jpg" alt="موج - ترکیب متریال"></div>
+                <div class="gallery-item"><img src="photo_2024-05-10_15-37-09_2.jpg" alt="نمای دیگر اثر"></div>
+            </div>
+        </div>
+
+        <!-- اثر سوم: موج (۱۲۵ × ۱۱۵ سانتی‌متر) با عکس‌های کامل گالری -->
+        <div>
+            <h3 style="font-size: 1.3rem; margin-bottom: 5px;">اثری از مجموعه موج (چیدمان در فضای گالری)</h3>
+            <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">ابعاد: ۱۲۵ × ۱۱۵ سانتی‌متر | ترکیب متریال | ۱۴۰۰</p>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="photo_2026-08-04_09-05-56.jpg" alt="موج - نمای نزدیک اثر"></div>
+                <div class="gallery-item"><img src="photo_2026-08-04_09-05-56_2.jpg" alt="موج - زاویه دیگر"></div>
+                <div class="gallery-item"><img src="photo_2026-08-04_09-05-57.jpg" alt="چیدمان اثر در گالری"></div>
+                <div class="gallery-item"><img src="photo_2026-08-04_09-05-57_2.jpg" alt="نمای محیطی گالری"></div>
+                <div class="gallery-item"><img src="photo_2026-08-04_09-05-58.jpg" alt="اثر در فضای نمایشگاه"></div>
+                <div class="gallery-item"><img src="photo_2026-08-04_09-05-58 (2).jpg" alt="مخاطب در کنار اثر"></div>
+                <div class="gallery-item"><img src="photo_2024-05-10_15-37-02.jpg" alt="جزییات اثر"></div>
+                <div class="gallery-item"><img src="photo_2024-05-10_15-37-02_2.jpg" alt="نمای استودیویی اثر"></div>
+                <div class="gallery-item"><img src="photo_2024-05-10_15-37-19.jpg" alt="بررسی بافت اثر"></div>
+            </div>
+        </div>
+    </section>
+    <!-- نمایشگاه دوم -->
+    <section class="exhibition-section">
+        <h2 class="exhibition-title">مجموعه مجسمه‌های دیواری</h2>
+        <div class="exhibition-meta">نمایشگاه انفرادی ، گالری آریا ، ۱۳۹۹</div>
+        <p class="exhibition-desc">این مجموعه با الهام از فرم‌های ارگانیک و بازی با بافت و رنگ، تلاشی است برای ثبت لحظه‌ای از دگرگونی و سیالیت در قالب ماده‌ای سخت.</p>
+        
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="لینک_عکس_اول_آریا.jpg" alt="اثری از صبا کفیلی"></div>
+            <div class="gallery-item"><img src="لینک_عکس_دوم_آریا.jpg" alt="اثری از صبا کفیلی"></div>
+        </div>
+    </section>
+
+    <!-- (شما همین ساختار <section> را برای نمایشگاه‌های ۳ تا ۶ هم کپی و تکرار می‌کنید) -->
+
+    <!-- فوتر و راه‌های ارتباطی -->
+    <footer>
+        <div class="contact-links">
+            <a href="mailto:Saba.kafili@email.com">ایمیل</a>
+            <a href="https://instagram.com/saba_kafili_art" target="_blank">اینستاگرام</a>
+        </div>
+        <p><small>تمامی حقوق محفوظ است © ۲۰۲۶</small></p>
+    </footer>
+
+</div>
+
+</body>
+</html>
