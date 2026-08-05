@@ -66,12 +66,12 @@
             border-radius: 12px;
             padding: 12px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            width: 220px;
+            width: 240px;
             flex-direction: column;
             gap: 8px;
         }
 
-        .dropdown-menu a {
+        .dropdown-menu a, .dropdown-menu button {
             color: var(--text-main);
             text-decoration: none;
             font-size: 0.9rem;
@@ -80,9 +80,15 @@
             border-radius: 8px;
             transition: background 0.2s;
             display: block;
+            text-align: right;
+            background: none;
+            border: none;
+            width: 100%;
+            cursor: pointer;
+            font-family: inherit;
         }
 
-        .dropdown-menu a:hover {
+        .dropdown-menu a:hover, .dropdown-menu button:hover {
             background: var(--card-bg);
             color: #000000;
         }
@@ -134,7 +140,7 @@
             padding: 40px 20px;
         }
 
-        /* بخش درباره هنرمند (دو زبانه و آکاردئونی) */
+        /* بخش درباره هنرمند */
         .about-section {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -296,6 +302,38 @@
             border: 1px solid var(--border-color);
         }
 
+        /* استایل پنجره مودل تحصیلات */
+        .education-modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .education-modal.active {
+            display: flex;
+        }
+
+        .education-card-content {
+            background: #ffffff;
+            padding: 35px;
+            border-radius: 12px;
+            max-width: 550px;
+            width: 100%;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            text-align: right;
+            border: 1px solid var(--border-color);
+        }
+
         /* فوتر */
         footer {
             text-align: center;
@@ -327,7 +365,8 @@
             <div class="dropdown-menu" id="dropdownMenu">
                 <a href="index.html">صفحه اصلی / Home</a>
                 <a href="mailto:kafilisaba@gmail.com">ارسال ایمیل / Email</a>
-                <a href="https://instagram.com/saba_kafili_art" target="_blank">اینستاگرام / Instagram</a>
+                <a href="https://www.instagram.com/sabakafili?igsh=MTBsNWR4Mm0zODN1Ng==" target="_blank">اینستاگرام / Instagram</a>
+                <button onclick="openEducationModal()">تحصیلات / Education</button>
             </div>
         </div>
 
@@ -392,7 +431,7 @@
                 </div>
             </a>
 
-             <!-- نمايشگاه گروهي,گالري والی1398  -->
+             <!-- نمایشگاه گروهی، گالری والی ۱۳۹۸ -->
             <a href="gallery-1398-vali.html" class="exhibition-card">
                 <div class="card-img-container">
                     <img src="images/Vali_01.png" alt="گالری والی">
@@ -450,6 +489,33 @@
         </div>
     </div>
 
+    <!-- پنجره پاپ‌آپ (Modal) تحصیلات -->
+    <div id="educationModal" class="education-modal" onclick="closeEducationModalOutside(event)">
+        <div class="education-card-content">
+            <button onclick="closeEducationModal()" style="position: absolute; top: 15px; left: 15px; background: none; border: none; font-size: 1.8rem; cursor: pointer; color: #333;">&times;</button>
+            
+            <h2 style="margin-top: 0; color: #000; border-bottom: 2px solid var(--border-color); padding-bottom: 10px; font-size: 1.3rem;">سوابق تحصیلی و گواهینامه‌ها / Education</h2>
+            
+            <div style="margin: 20px 0; line-height: 2;">
+                <p style="margin-bottom: 15px;">
+                    🎓 <strong>کارشناسی (لیسانس) گرافیک</strong><br>
+                    <span style="color: var(--text-muted);">دانشگاه سوره (فارغ‌التحصیل ۱۳۸۶)</span><br>
+                    <span style="font-size: 0.9rem; color: var(--text-muted); font-family: Arial, sans-serif;">Bachelor of Arts in Graphic Design, Soore University (2007)</span>
+                </p>
+                <hr style="border: 0; border-top: 1px dashed var(--border-color); margin: 15px 0;">
+                <p style="margin-bottom: 0;">
+                    📜 <strong>گواهینامه مهارت مربی نقاشی کودک</strong><br>
+                    <span style="color: var(--text-muted);">مرجع صادرکننده: سازمان آموزش فنی و حرفه‌ای کشور (مدت دوره: ۱۷۴ ساعت)</span><br>
+                    <span style="font-size: 0.9rem; color: var(--text-muted); font-family: Arial, sans-serif;">Child Painting Instructor Certificate, Technical and Vocational Training Organization (174 hours)</span>
+                </p>
+            </div>
+            
+            <div style="text-align: center; margin-top: 25px;">
+                <button onclick="closeEducationModal()" style="background: #000; color: #fff; border: none; padding: 10px 25px; border-radius: 8px; cursor: pointer; font-weight: bold;">بستن / Close</button>
+            </div>
+        </div>
+    </div>
+
     <footer>
         <p>تمامی حقوق محفوظ است © ۲۰۲۶ صبا کفیلی | All Rights Reserved © 2026 Saba Kafili</p>
     </footer>
@@ -478,6 +544,22 @@
                 menu.style.display = 'none';
             } else {
                 menu.style.display = 'flex';
+            }
+        }
+
+        function openEducationModal() {
+            document.getElementById('educationModal').classList.add('active');
+            document.getElementById('dropdownMenu').style.display = 'none';
+        }
+
+        function closeEducationModal() {
+            document.getElementById('educationModal').classList.remove('active');
+        }
+
+        function closeEducationModalOutside(event) {
+            const modalContent = document.querySelector('.education-card-content');
+            if (!modalContent.contains(event.target)) {
+                closeEducationModal();
             }
         }
 
