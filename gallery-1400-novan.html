@@ -197,7 +197,7 @@
             width: 100%;
             height: 320px;
             overflow: hidden;
-            background: #f8fafc; /* پس‌زمینه هماهنگ برای کامل دیده شدن تصویر بدون برش */
+            background: #f8fafc;
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -208,7 +208,7 @@
         .image-container img {
             max-width: 100%;
             max-height: 100%;
-            object-fit: contain; /* تضمین نمایش کامل عکس بدون برش خوردن پیش از کلیک */
+            object-fit: contain;
             transition: transform 0.6s ease;
         }
 
@@ -425,7 +425,7 @@
                 </div>
             </div>
 
-            <!-- اثر ۶ -->
+            <!-- اثر ۵ -->
             <div class="artwork-card">
                 <div class="image-container" onclick="openLightbox('images/Novan_Farag_05.png')">
                     <img src="images/Novan_Farag_05.png" alt="Novan Farag 05">
@@ -447,8 +447,8 @@
 
     <!-- کادر بزرگنمایی عکس (Lightbox) -->
     <div id="lightbox" class="lightbox-modal" onclick="closeLightbox()">
-        <button class="close-lightbox">&times;</button>
-        <img class="lightbox-content" id="lightbox-img">
+        <button class="close-lightbox" onclick="closeLightbox()">&times;</button>
+        <img class="lightbox-content" id="lightbox-img" onclick="event.stopPropagation()">
     </div>
 
     <footer>
@@ -470,11 +470,7 @@
 
         function toggleMenu() {
             const menu = document.getElementById('dropdownMenu');
-            if (menu.style.display === 'flex') {
-                menu.style.display = 'none';
-            } else {
-                menu.style.display = 'flex';
-            }
+            menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
         }
 
         // بستن منو با کلیک در بیرون از آن
