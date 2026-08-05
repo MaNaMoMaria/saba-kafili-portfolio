@@ -169,7 +169,7 @@
             font-size: 1rem;
         }
 
-        /* گرید تصاویر با موشن زیبا (بدون هیچ نوشته‌ای در زیر تصاویر) */
+        /* گرید تصاویر با موشن زیبا */
         .image-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -223,7 +223,7 @@
         .image-container img {
             max-width: 100%;
             max-height: 100%;
-            object-fit: contain; /* تضمین نمایش کامل عکس پیش از کلیک بدون برش */
+            object-fit: contain;
             transition: transform 0.6s ease;
         }
 
@@ -404,8 +404,8 @@
             </div>
 
             <div class="image-item-wrapper">
-                <div class="image-container" onclick="openLightbox('images/Free_010.png')">
-                    <img src="images/Free_010.png" alt="Free Work 10">
+                <div class="image-container" onclick="openLightbox('images/Free_10.png')">
+                    <img src="images/Free_10.png" alt="Free Work 10">
                 </div>
             </div>
         </div>
@@ -413,8 +413,8 @@
 
     <!-- کادر بزرگنمایی عکس (Lightbox) -->
     <div id="lightbox" class="lightbox-modal" onclick="closeLightbox()">
-        <button class="close-lightbox">&times;</button>
-        <img class="lightbox-content" id="lightbox-img">
+        <button class="close-lightbox" onclick="closeLightbox()">&times;</button>
+        <img class="lightbox-content" id="lightbox-img" onclick="event.stopPropagation()">
     </div>
 
     <footer>
@@ -436,11 +436,7 @@
 
         function toggleMenu() {
             const menu = document.getElementById('dropdownMenu');
-            if (menu.style.display === 'flex') {
-                menu.style.display = 'none';
-            } else {
-                menu.style.display = 'flex';
-            }
+            menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
         }
 
         // بستن منو با کلیک در بیرون از آن
