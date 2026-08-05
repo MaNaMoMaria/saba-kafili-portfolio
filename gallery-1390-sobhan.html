@@ -186,7 +186,7 @@
             font-size: 1rem;
         }
 
-        /* گرید تصاویر با موشن زیبا (بدون هیچ‌گونه نوشته در زیر عکس‌ها) */
+        /* گرید تصاویر با موشن زیبا */
         .image-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -207,7 +207,6 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.03);
         }
 
-        /* تأخیر آبشاری برای کارت‌ها */
         .image-item-wrapper:nth-child(1) { animation-delay: 0.1s; }
         .image-item-wrapper:nth-child(2) { animation-delay: 0.2s; }
         .image-item-wrapper:nth-child(3) { animation-delay: 0.3s; }
@@ -236,7 +235,7 @@
         .image-container img {
             max-width: 100%;
             max-height: 100%;
-            object-fit: contain; /* تضمین نمایش کامل عکس پیش از کلیک بدون برش */
+            object-fit: contain;
             transition: transform 0.6s ease;
         }
 
@@ -366,7 +365,7 @@
             </div>
         </div>
 
-        <!-- لیست تصاویر گالری سبحان ۱۳۹۰ (بدون هیچ متنی زیر تصاویر) -->
+        <!-- لیست تصاویر گالری سبحان ۱۳۹۰ -->
         <div class="image-grid">
             <div class="image-item-wrapper">
                 <div class="image-container" onclick="openLightbox('images/Sobhan_Gender_01.png')">
@@ -408,8 +407,8 @@
 
     <!-- کادر بزرگنمایی عکس (Lightbox) -->
     <div id="lightbox" class="lightbox-modal" onclick="closeLightbox()">
-        <button class="close-lightbox">&times;</button>
-        <img class="lightbox-content" id="lightbox-img">
+        <button class="close-lightbox" onclick="closeLightbox()">&times;</button>
+        <img class="lightbox-content" id="lightbox-img" onclick="event.stopPropagation()">
     </div>
 
     <footer>
@@ -431,11 +430,7 @@
 
         function toggleMenu() {
             const menu = document.getElementById('dropdownMenu');
-            if (menu.style.display === 'flex') {
-                menu.style.display = 'none';
-            } else {
-                menu.style.display = 'flex';
-            }
+            menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
         }
 
         // بستن منو با کلیک در بیرون از آن
